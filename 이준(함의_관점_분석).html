@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>학생부 학업역량 평가 · 103 이준 — 함의(含意)의 언어로</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;900&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#f5f3ed;--bg2:#eceade;--surface:#ffffff;--surface2:#f9f7f1;
+  --border:#dfdbc9;--border2:#d0ccba;
+  --text:#1a1a18;--text2:#4d4a3f;--text3:#84806e;
+  --ink:#2c2a22;
+  --accent:#3d6b4e;--accent2:#2b5038;
+  --accent-l:rgba(61,107,78,.07);--accent-l2:rgba(61,107,78,.14);
+  --blue:#3b5fc0;--blue-bg:rgba(59,95,192,.06);
+  --green:#2a7d4a;--green-bg:rgba(42,125,74,.06);
+  --yellow:#9e6c16;--yellow-bg:rgba(158,108,22,.06);
+  --red:#b83a2a;--red-bg:rgba(184,58,42,.05);
+  --orange:#b05a1a;--orange-bg:rgba(176,90,26,.06);
+  --teal:#1a7a72;--teal-bg:rgba(26,122,114,.06);
+  --purple:#6a40b0;--purple-bg:rgba(106,64,176,.05);
+  --warm:#8b7355;
+  --r:14px;--rs:8px;
+  --sh:0 1px 3px rgba(0,0,0,.05),0 4px 16px rgba(0,0,0,.03);
+  --sh2:0 2px 8px rgba(0,0,0,.05),0 8px 28px rgba(0,0,0,.05);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text);line-height:1.78;min-height:100vh}
+
+/* ── Hero ── */
+.hero{
+  background:linear-gradient(165deg,#1e2438 0%,#2a3a5a 35%,#3a5080 100%);
+  padding:52px 24px 42px;text-align:center;position:relative;overflow:hidden;
+}
+.hero::before{content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20.5V18H0v-2h20v-2l2 3.5-2 3z' fill='%23ffffff' fill-opacity='.02'/%3E%3C/svg%3E");
+  pointer-events:none;
+}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:80px;
+  background:linear-gradient(to top,var(--bg),transparent);pointer-events:none;
+}
+.h-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);
+  border-radius:100px;padding:4px 14px;
+  font-size:11.5px;font-weight:600;color:rgba(255,255,255,.8);letter-spacing:.8px;
+  margin-bottom:16px;
+}
+.h-badge .dot{width:6px;height:6px;border-radius:50%;background:#7eb8e8;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(28px,4.8vw,44px);color:#fff;font-weight:400;letter-spacing:-.5px;margin-bottom:5px}
+.hero .sub{font-size:14px;color:rgba(255,255,255,.65);margin-bottom:22px}
+.hero .sub em{color:#7eb8e8;font-style:normal;font-weight:600}
+
+/* Philosophy Banner */
+.philo{
+  max-width:700px;margin:0 auto;position:relative;z-index:2;
+  background:rgba(255,255,255,.08);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.12);border-radius:var(--r);
+  padding:22px 26px;text-align:left;color:rgba(255,255,255,.88);font-size:13.5px;line-height:1.9;
+}
+.philo .q{
+  font-family:'DM Serif Display',serif;font-size:17px;color:#7eb8e8;
+  margin-bottom:8px;font-weight:400;font-style:italic;
+}
+.philo .hl{background:rgba(126,184,232,.15);padding:1px 5px;border-radius:3px;font-weight:600;color:#7eb8e8}
+
+/* ── Nav ── */
+.nw{position:sticky;top:0;z-index:100;background:rgba(245,243,237,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nv{max-width:940px;margin:0 auto;display:flex;overflow-x:auto;scrollbar-width:none;padding:0 10px}
+.nv::-webkit-scrollbar{display:none}
+.nb{flex-shrink:0;background:none;border:none;font-family:'Noto Sans KR',sans-serif;font-size:13px;font-weight:500;color:var(--text3);padding:12px 15px;cursor:pointer;position:relative;transition:color .2s;white-space:nowrap}
+.nb:hover{color:var(--text2)}.nb.on{color:var(--accent);font-weight:600}
+.nb.on::after{content:'';position:absolute;bottom:0;left:15px;right:15px;height:2.5px;background:var(--accent);border-radius:2px 2px 0 0}
+
+/* ── Layout ── */
+.ct{max-width:940px;margin:0 auto;padding:0 20px 80px}
+.sec{display:none;animation:fu .3s ease}.sec.on{display:block}
+@keyframes fu{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.sh{margin:32px 0 18px}
+.sh h2{font-size:19px;font-weight:700;display:flex;align-items:center;gap:8px}
+.sh p{font-size:12.5px;color:var(--text3);margin-top:1px}
+
+/* ── Card ── */
+.cd{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:20px 22px;margin-bottom:12px;box-shadow:var(--sh);transition:box-shadow .2s}
+.cd:hover{box-shadow:var(--sh2)}
+.ct-t{font-size:14.5px;font-weight:700;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.ct-d{font-size:13px;color:var(--text2);line-height:1.85}
+
+/* ── Badges ── */
+.bd{display:inline-flex;align-items:center;gap:3px;padding:3px 11px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:.3px}
+.bd.s{background:var(--green-bg);color:var(--green);border:1px solid rgba(42,125,74,.12)}
+.bd.m{background:var(--yellow-bg);color:var(--yellow);border:1px solid rgba(158,108,22,.1)}
+.bd.b{background:var(--blue-bg);color:var(--blue);border:1px solid rgba(59,95,192,.1)}
+.bd.r{background:var(--red-bg);color:var(--red);border:1px solid rgba(184,58,42,.1)}
+
+/* Field Badge */
+.fbd{display:inline-flex;align-items:center;gap:3px;padding:3px 10px;border-radius:100px;font-size:10.5px;font-weight:600;letter-spacing:.3px;margin:2px}
+.fbd.air{background:rgba(59,130,246,.08);color:#3b82f6;border:1px solid rgba(59,130,246,.15)}
+.fbd.space{background:rgba(139,92,246,.08);color:#8b5cf6;border:1px solid rgba(139,92,246,.15)}
+.fbd.launch{background:rgba(234,88,12,.08);color:#ea580c;border:1px solid rgba(234,88,12,.15)}
+
+/* ── Evidence ── */
+.ev{background:var(--surface2);border-radius:var(--rs);padding:13px 16px;margin:8px 0;border-left:3px solid var(--accent);font-size:13px;color:var(--text2);line-height:1.85}
+.ev b{color:var(--text);font-weight:600}
+.ev .tg{display:inline-block;background:var(--accent-l);color:var(--accent);font-size:10.5px;font-weight:600;padding:1px 7px;border-radius:4px;margin-right:4px}
+
+/* ── Compare Box ── */
+.compare-box{
+  display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0;
+}
+@media(max-width:640px){.compare-box{grid-template-columns:1fr}}
+.cmp{border-radius:var(--rs);padding:14px 16px;font-size:12.5px;line-height:1.8}
+.cmp.decl{background:var(--red-bg);border:1px solid rgba(184,58,42,.1);color:var(--red)}
+.cmp.decl::before{content:'선언(宣言)';display:block;font-size:10px;font-weight:700;letter-spacing:1px;margin-bottom:4px;text-transform:uppercase;opacity:.7}
+.cmp.impl{background:var(--green-bg);border:1px solid rgba(42,125,74,.1);color:var(--green)}
+.cmp.impl::before{content:'함의(含意)';display:block;font-size:10px;font-weight:700;letter-spacing:1px;margin-bottom:4px;text-transform:uppercase;opacity:.7}
+
+/* ── Insight Box ── */
+.insight{
+  background:linear-gradient(135deg,rgba(61,107,78,.06),rgba(26,122,114,.05));
+  border:1px solid rgba(61,107,78,.15);border-radius:var(--r);
+  padding:20px 22px;margin:16px 0;
+}
+.insight h4{font-size:13.5px;font-weight:700;color:var(--accent);margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.insight p{font-size:13px;color:var(--text2);line-height:1.85}
+
+/* ── Radar ── */
+.ra{display:flex;gap:24px;align-items:center;flex-wrap:wrap;margin-bottom:24px}
+.rl{flex:1;min-width:220px}
+.li{display:flex;align-items:center;gap:9px;padding:8px 0;border-bottom:1px solid var(--border);cursor:pointer;transition:background .15s}
+.li:last-child{border-bottom:none}
+.li:hover{background:var(--surface2);margin:0 -6px;padding:8px 6px;border-radius:6px}
+.lc{font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:600;color:var(--accent);background:var(--accent-l);padding:2px 7px;border-radius:4px;min-width:28px;text-align:center}
+.ll{flex:1;font-size:12.5px;font-weight:500}
+
+/* ── Table ── */
+.tb{width:100%;border-collapse:collapse;font-size:12.5px;margin:12px 0}
+.tb th{text-align:left;padding:8px 9px;font-weight:600;color:var(--text3);font-size:10.5px;text-transform:uppercase;letter-spacing:.5px;border-bottom:2px solid var(--border)}
+.tb td{padding:8px 9px;border-bottom:1px solid var(--border);color:var(--text2)}
+.tb tr:hover td{background:var(--surface2)}
+.tb .mn{font-family:'IBM Plex Mono',monospace;font-weight:500;color:var(--text)}
+.gc{display:inline-block;padding:2px 9px;border-radius:100px;font-weight:600;font-size:11.5px}
+.gc.a{background:var(--green-bg);color:var(--green)}.gc.b{background:var(--blue-bg);color:var(--blue)}
+
+/* ── Score Bar ── */
+.sb{margin:5px 0}.sbl{display:flex;justify-content:space-between;font-size:11.5px;margin-bottom:2px}
+.sbl span:first-child{color:var(--text2);font-weight:500}.sbl span:last-child{color:var(--text3)}
+.sbb{height:7px;background:var(--bg2);border-radius:100px;overflow:hidden}
+.sbf{height:100%;border-radius:100px;transition:width 1s ease}
+
+/* ── Accordion ── */
+.ac{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);margin-bottom:10px;overflow:hidden;box-shadow:var(--sh)}
+.ah{display:flex;align-items:center;justify-content:space-between;padding:15px 20px;cursor:pointer;user-select:none}
+.ah h3{font-size:14px;font-weight:700;display:flex;align-items:center;gap:7px}
+.ah .aw{font-size:15px;color:var(--text3);transition:transform .3s}
+.ac.op .ah .aw{transform:rotate(180deg)}
+.ab{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.ac.op .ab{max-height:3500px}
+.ai{padding:0 20px 20px}
+.sl{font-size:10.5px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.8px;margin:12px 0 5px}
+
+/* Example Sentence */
+.ex{
+  background:var(--teal-bg);border:1px solid rgba(26,122,114,.1);
+  border-radius:var(--rs);padding:14px 16px;
+  font-size:12.5px;color:var(--teal);line-height:1.85;
+  font-style:italic;position:relative;
+}
+.ex::before{content:'함의형 세특 문장';position:absolute;top:-8px;left:11px;background:var(--surface);padding:0 5px;font-size:9.5px;font-weight:700;color:var(--teal);letter-spacing:.5px;font-style:normal;text-transform:uppercase}
+
+/* ── Flow ── */
+.fl{display:flex;gap:0;margin:18px 0;overflow-x:auto;padding-bottom:4px}
+.fs{flex:1;min-width:120px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:16px 12px;text-align:center;position:relative}
+.fs:not(:last-child)::after{content:'→';position:absolute;right:-12px;top:50%;transform:translateY(-50%);color:var(--text3);font-size:15px;z-index:2}
+.fs .fi{font-size:20px;margin-bottom:5px}
+.fs .fla{font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px}
+.fs .ft{font-size:12px;color:var(--text);font-weight:500}
+
+/* ── Key ── */
+.kb{background:linear-gradient(135deg,var(--accent-l),var(--teal-bg));border:1px solid rgba(61,107,78,.15);border-radius:var(--r);padding:24px;margin:24px 0;text-align:center}
+.kb h3{font-size:14.5px;font-weight:700;margin-bottom:8px;color:var(--accent)}
+.kb p{font-size:13px;color:var(--text2);line-height:1.85;max-width:580px;margin:0 auto}
+
+/* ── Priority Item ── */
+.pri-item{display:flex;gap:16px;margin-bottom:18px;padding:18px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--sh)}
+.pri-num{flex-shrink:0;width:36px;height:36px;background:var(--accent);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px}
+.pri-content h4{font-size:14px;font-weight:700;margin-bottom:4px;color:var(--text)}
+.pri-content p{font-size:13px;color:var(--text2);line-height:1.8}
+
+/* ── Warning Box ── */
+.warn{background:var(--orange-bg);border:1px solid rgba(176,90,26,.15);border-radius:var(--r);padding:16px 20px;margin:12px 0}
+.warn h4{font-size:13px;font-weight:700;color:var(--orange);margin-bottom:5px;display:flex;align-items:center;gap:6px}
+.warn p{font-size:12.5px;color:var(--text2);line-height:1.75}
+
+/* ── Highlight Box ── */
+.hlbox{background:var(--blue-bg);border:1px solid rgba(59,95,192,.15);border-radius:var(--r);padding:16px 20px;margin:12px 0}
+.hlbox h4{font-size:13px;font-weight:700;color:var(--blue);margin-bottom:5px;display:flex;align-items:center;gap:6px}
+.hlbox p{font-size:12.5px;color:var(--text2);line-height:1.75}
+
+/* Curriculum Check */
+.cur-check{background:var(--purple-bg);border:1px solid rgba(106,64,176,.15);border-radius:var(--r);padding:16px 20px;margin:12px 0}
+.cur-check h4{font-size:13px;font-weight:700;color:var(--purple);margin-bottom:5px;display:flex;align-items:center;gap:6px}
+.cur-check p{font-size:12.5px;color:var(--text2);line-height:1.75}
+
+@media(max-width:640px){
+  .ra{flex-direction:column;align-items:center}
+  .fl{flex-direction:column;gap:6px}
+  .fs:not(:last-child)::after{content:'↓';right:auto;bottom:-12px;top:auto;left:50%;transform:translateX(-50%)}
+  .compare-box{grid-template-columns:1fr}
+  .pri-item{flex-direction:column}
+  .pri-num{margin:0 auto}
+}
+@media print{.nw{display:none}.sec{display:block!important;page-break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<!-- ═══ HERO ═══ -->
+<div class="hero">
+  <div class="h-badge"><span class="dot"></span>학업역량 5요소 · 함의(含意)의 언어</div>
+  <h1>103 이준 · 학생부 분석</h1>
+  <p class="sub">2022 개정교육과정 1학년 &nbsp;|&nbsp; <em>"말하지 말고 보여줘라"</em> 관점 적용</p>
+  <div class="philo">
+    <div class="q">"분야명 없이, 역량만으로 방향이 읽히는 기록"</div>
+    <p>
+      이 분석은 <span class="hl">함의(含意)</span>의 원칙을 적용합니다.
+      진로 키워드를 직접 선언하지 않고, <b>역량의 루틴</b>(관찰→설계→정량→해석→한계 인식)만 반복하면
+      평가자가 스스로 "이 학생은 이 분야 사람이구나"를 <b>읽어내게</b> 됩니다.
+      또한 <b>1학년 성취기준 적합성</b>을 점검하여 무리한 용어 사용을 방지합니다.
+    </p>
+  </div>
+</div>
+
+<!-- ═══ NAV ═══ -->
+<div class="nw"><nav class="nv" id="nav">
+  <button class="nb on" data-t="field">분야별 역량</button>
+  <button class="nb" data-t="diag">5요소 진단</button>
+  <button class="nb" data-t="curr">성취기준 점검</button>
+  <button class="nb" data-t="lang">선언 vs 함의</button>
+  <button class="nb" data-t="risk">표현 리스크</button>
+  <button class="nb" data-t="pri">보완 우선순위</button>
+  <button class="nb" data-t="course">과목 선택</button>
+  <button class="nb" data-t="subj">과목별 보완</button>
+  <button class="nb" data-t="arc">3년 성장 아크</button>
+</nav></div>
+
+<div class="ct">
+
+<!-- ═══ TAB 0: 분야별 역량 ═══ -->
+<div class="sec on" id="field">
+  <div class="sh"><h2>🛫 항공·우주·발사체 분야별 역량 매핑</h2><p>학생부 세특을 3개 세부 분야로 분류하여 역량 함의 분석</p></div>
+
+  <div class="cd" style="border-color:rgba(59,130,246,.3)">
+    <div class="ct-t" style="color:#3b82f6">✈️ 항공 분야 (Aviation) 역량</div>
+    <p class="ct-d" style="margin:8px 0"><b>핵심:</b> 공기 중 비행체의 운동·제어·구조 설계</p>
+    <div class="ev" style="border-left-color:#3b82f6">
+      <span class="tg" style="background:rgba(59,130,246,.08);color:#3b82f6">통합과학</span>
+      <b>자유낙하 실험 오차 분석</b> — "가속도 값이 이론값보다 작게 나온 이유를 <b>공기저항</b>과 영상 프레임 누락에서 찾고, 무게 큰 공 사용 등 보완책 제안"
+      <div style="margin-top:6px">→ <span class="fbd air">공기저항</span> 개념이 대기 중 비행체 설계의 기초. 오차 원인 분석→보완 설계 루틴이 항공기 설계 프로세스와 동일.</div>
+    </div>
+    <div class="ev" style="border-left-color:#3b82f6">
+      <span class="tg" style="background:rgba(59,130,246,.08);color:#3b82f6">동아리</span>
+      <b>에어포일 버피팅 실험</b> — "풍동 실험을 활용한 에어포일 버피팅 현상 분석. 두 익형의 구조적 특성과 공력적 차이를 조사하고 시뮬레이션 수행. 난류 운동 에너지와 난류 동점성 계수 시각화로 와류 발생 정도 분석"
+      <div style="margin-top:6px">→ <span class="fbd air">익형·풍동·난류</span>는 항공기 날개 설계의 핵심 개념. 실험→시뮬레이션→분석의 통합 역량.</div>
+    </div>
+    <div class="ev" style="border-left-color:#3b82f6">
+      <span class="tg" style="background:rgba(59,130,246,.08);color:#3b82f6">진로활동</span>
+      <b>드론 오토파일럿 비행 체험</b> — "무인기, 드론 오토파일럿 비행 체험 13시간 이수. 시뮬링크로 오토파일럿 시스템 원리 학습하고 3D 모델링 기초 익힘. GPS 항법 시스템의 작동 원리를 수식으로 분석"
+      <div style="margin-top:6px">→ <span class="fbd air">자율비행·항법</span>은 현대 항공의 핵심 기술. GPS·INS 통합 항법 이해.</div>
+    </div>
+    <div class="ev" style="border-left-color:#3b82f6">
+      <span class="tg" style="background:rgba(59,130,246,.08);color:#3b82f6">진로활동</span>
+      <b>GPS·INS 항법 통합</b> — "GPS와 INS를 병행 사용하는 이유를 추가 탐구. INS의 누적 오차와 GPS의 실시간 추적 한계를 비교하며, 두 항법 시스템이 상호 보완적으로 활용됨을 이해함"
+      <div style="margin-top:6px">→ <span class="fbd air">항법 통합</span>은 비행체 정밀 제어의 기초. 오차 분석→보완 설계 루틴 반복.</div>
+    </div>
+  </div>
+
+  <div class="cd" style="border-color:rgba(139,92,246,.3);margin-top:16px">
+    <div class="ct-t" style="color:#8b5cf6">🌌 우주 분야 (Space) 역량</div>
+    <p class="ct-d" style="margin:8px 0"><b>핵심:</b> 궤도 운동·천체 역학·무중력 환경</p>
+    <div class="ev" style="border-left-color:#8b5cf6">
+      <span class="tg" style="background:rgba(139,92,246,.08);color:#8b5cf6">동아리</span>
+      <b>궤도 분류와 형성 원리</b> — "'우주 발사체 궤도의 이해'를 주제로 궤도의 분류 기준과 형성 원리를 체계적으로 정리. 고도, 속도, 이심률 등에 따른 궤도 특성을 비교 분석. 특히 정지궤도가 통신 위성에 활용되는 물리적 이유를 여러 조건과 연계해 설명"
+      <div style="margin-top:6px">→ <span class="fbd space">궤도·속도·고도</span>는 우주 비행체의 기본 역학. <b>⚠️ "이심률"은 1학년 성취기준 초과 → 수정 필요</b></div>
+    </div>
+    <div class="ev" style="border-left-color:#8b5cf6">
+      <span class="tg" style="background:rgba(139,92,246,.08);color:#8b5cf6">정보</span>
+      <b>인공위성 궤도 계산 프로그램</b> — "사용자에게 인공위성의 현재 속력과 고도를 입력받아 궤도 유지 최소 속력, 1회전 시간, 목표 고도 도달 시 필요한 가속·감속 값을 계산해 주는 프로그램 제작"
+      <div style="margin-top:6px">→ <span class="fbd space">궤도 계산</span>을 알고리즘화. 역학 개념을 코드로 전이하는 핵심 역량.</div>
+    </div>
+    <div class="ev" style="border-left-color:#8b5cf6">
+      <span class="tg" style="background:rgba(139,92,246,.08);color:#8b5cf6">과탐실험</span>
+      <b>케플러 법칙 역사적 이해</b> — "케플러의 3가지 행성 운동 법칙을 중심으로 천체운동 원리 탐구. 타원궤도 법칙, 면적 법칙, 주기-반지름 법칙 개념을 역사적 맥락과 함께 정리. 브라헤의 정밀 관측 자료를 바탕으로 한 케플러의 분석 방식과 뉴턴의 수학적 증명으로 이어지는 과학 발전의 연계성을 통합 해석"
+      <div style="margin-top:6px">→ <span class="fbd space">케플러 법칙</span>은 궤도 역학의 역사적 기초. 법칙의 원리를 이해하는 깊이 있는 탐구.</div>
+    </div>
+  </div>
+
+  <div class="cd" style="border-color:rgba(234,88,12,.3);margin-top:16px">
+    <div class="ct-t" style="color:#ea580c">🚀 발사체 분야 (Launch Vehicle) 역량</div>
+    <p class="ct-d" style="margin:8px 0"><b>핵심:</b> 추진·연소·구조 강도·비행 제어</p>
+    <div class="ev" style="border-left-color:#ea580c">
+      <span class="tg" style="background:rgba(234,88,12,.08);color:#ea580c">한국사</span>
+      <b>화통도감 - 초기 추진 기술</b> — "'화통도감' 인용 기사로 우리나라 최초로 로켓 기술이 적용된 주화를 개발하여 왜구 격퇴에 역할. 현재 우리나라의 우주 개발 사업과 연계하여 기술적 전통과 자주 국방의 상징으로서 현재적 의미 발표"
+      <div style="margin-top:6px">→ <span class="fbd launch">초기 추진</span> 개념의 역사적 이해. 기술 발전의 연속성 인식.</div>
+    </div>
+    <div class="ev" style="border-left-color:#ea580c">
+      <span class="tg" style="background:rgba(234,88,12,.08);color:#ea580c">진로활동</span>
+      <b>달걀 낙하 착륙장치 설계</b> — "'달걀 낙하 착륙 장치 설계'를 주제로 충격량, 중력, 등가속도 운동 역학 개념을 실제 상황에 적용. 실험 설계 과정에서 실패 요인을 분석하고 개선 방안 제시"
+      <div style="margin-top:6px">→ <span class="fbd launch">착륙·충격 완화</span>는 발사체 회수(재사용) 기술의 기초. 실패 분석→개선이 공학 설계의 핵심.</div>
+    </div>
+    <div class="ev" style="border-left-color:#ea580c">
+      <span class="tg" style="background:rgba(234,88,12,.08);color:#ea580c">통합사회</span>
+      <b>발사장 환경 문제와 기업 책임</b> — "로켓 발사장 조성과 발사 과정에서 발생하는 환경 문제를 다룬 기사 분석. 관련 기업의 사회적 책임 이행을 촉구하는 글을 작성해 온라인 게시하는 생태시민 활동 계획·실천"
+      <div style="margin-top:6px">→ <span class="fbd launch">환경·윤리</span>는 발사체 개발의 사회적 맥락. 기술의 사회적 영향 인식.</div>
+    </div>
+  </div>
+
+  <div class="insight" style="margin-top:20px">
+    <h4>💡 분야 통합 역량 (All Fields)</h4>
+    <p><b>수학·정보:</b> GPS 좌표계 분석, 완전수 알고리즘(5% 정답률), 거스름돈·최솟값 프로그래밍 → <span class="fbd air">항공</span><span class="fbd space">우주</span><span class="fbd launch">발사체</span> 모두에 필요한 <b>수학적 모델링·계산 역량</b><br>
+    <b>진로활동:</b> GPU AI 연산 전력 소모 정량 분석 → 시스템 에너지 효율 분석은 <span class="fbd space">우주</span><span class="fbd launch">발사체</span>의 전력 설계에 필수<br>
+    <b>영어:</b> CNN 기사 어휘 비율 도표 분석 → 학술 문헌 분석 역량은 모든 분야 공통</p>
+  </div>
+
+  <div class="kb">
+    <h3>🎯 핵심 전략: "분야명 없이 역량으로만 방향 함의"</h3>
+    <p>현재 세특에서 <b>"항공우주공학 분야", "항공우주공학자"</b> 같은 선언을 제거해도, 위의 역량 조합만으로 평가자는 자연스럽게 <b>"이 학생은 항공·우주·발사체 관련 분야를 한다"</b>를 읽어냅니다. 이것이 가장 강력한 함의입니다.</p>
+  </div>
+</div>
+
+<!-- ═══ TAB 1: 5요소 진단 ═══ -->
+<div class="sec" id="diag">
+  <div class="sh"><h2>📊 학업역량 5요소 진단</h2><p>성취기준에 따른 성취수준 특성 + 참여도 + 자기주도적 변화·성장</p></div>
+
+  <div class="ra">
+    <svg width="280" height="280" viewBox="0 0 280 280" id="radar"></svg>
+    <div class="rl" id="rleg"></div>
+  </div>
+
+  <div class="cd" id="a1-card">
+    <div class="ct-t"><span class="lc">A1</span>교육과정 충실도<span class="bd s">강점</span></div>
+    <p class="ct-d" style="margin-top:5px">전 교과 최상위권 성취 + 개근 + 반장 1년 역임 + 또래협력학습 멘토</p>
+    <div class="ev"><span class="tg">성적</span>1학기 국영수 모두 <b>97점 · 1등급</b>, 한국사·통합사회·통합과학 <b>97~98점 · 1등급</b>, 정보 <b>100점 · 1등급</b>. 전 교과 A 성취도.</div>
+    <div class="ev"><span class="tg">출결</span><b>1년 개근</b>. 성실한 학습 태도의 기본 지표.</div>
+    <div class="ev"><span class="tg">리더십</span>학급 반장 1년 역임(2025.03~2026.02). 학급 회의 운영·공지 전달·또래 관계 조율을 책임감 있게 수행. 교사와 또래 모두의 신뢰 확보.</div>
+    <div class="ev"><span class="tg">멘토링</span>또래협력학습에서 <b>총 8회 강의</b> 진행. 통합과학·통합사회·수학 핵심 내용을 정리하여 강의하며 멘토 역할 수행.</div>
+    <div class="hlbox" style="margin-top:8px">
+      <h4>📌 수상경력 미반영 유의</h4>
+      <p>2024학년도부터 학생부 <b>수상경력은 대입에 미반영</b>됩니다. 따라서 교과우수상·선행상 등은 평가 요소가 아니며, <b>교과 성적(원점수·성취도·등급)</b>과 <b>세특에 기록된 학습 과정</b>만이 학업역량 평가 근거입니다. 수상은 학교 내 격려 목적일 뿐, 대입 평가와 무관합니다.</p>
+    </div>
+  </div>
+
+  <div class="cd" id="a2-card">
+    <div class="ct-t"><span class="lc">A2</span>개념 이해 깊이 · 전이<span class="bd s">강점</span></div>
+    <p class="ct-d" style="margin-top:5px">교과 개념을 다른 맥락으로 옮겨 적용하는 사고가 반복 확인됨</p>
+    <div class="ev"><span class="tg">수학→GPS</span>좌표계·구의 방정식 → <b>GPS 위치 추정 원리</b>로 확장. 3차원 도형의 방정식이 다양한 기술 분야에 활용됨을 탐구.</div>
+    <div class="ev"><span class="tg">정보→알고리즘</span>완전수 판별을 <b>중첩 반복문</b>으로 단계적 설계. 전교생 중 5% 정답률 문제 해결. 인공위성 궤도 계산 프로그램으로 역학 개념을 코드로 전이.</div>
+    <div class="ev"><span class="tg">통합과학→오차</span>자유낙하 실험에서 가속도 오차 원인을 <b>공기저항 + 영상 프레임 누락</b>으로 분석하고 보완책 제안.</div>
+  </div>
+
+  <div class="cd" id="a3-card">
+    <div class="ct-t"><span class="lc">A3</span>학습 과정 정교함<span class="bd m">중상</span></div>
+    <p class="ct-d" style="margin-top:5px">오차 인식→원인 분석→보완 설계가 과학·정보에서 확인되나, 일부 교과는 총평 중심</p>
+    <div class="ev"><span class="tg">통합과학</span>자유낙하 실험 → 이론값 불일치 → 오차 원인(공기저항·프레임 누락) → 보완책(무게 큰 공·촬영 횟수 증가).</div>
+    <div class="ev"><span class="tg">동아리</span>에어포일 실험 → 난류 시각화 → 와류 발생 분석 → 실험 결과 비판적 성찰 → 개선점 인식.</div>
+    <div class="ev" style="border-left-color:var(--orange)"><span class="tg" style="background:var(--orange-bg);color:var(--orange)">보완</span>국어·영어·사회 세특에서 "적극적 참여", "성실히 수행" 같은 총평 비중 높음. 구체적 수정 과정 추가 필요.</div>
+  </div>
+
+  <div class="cd" id="a4-card">
+    <div class="ct-t"><span class="lc">A4</span>학술적 문해력<span class="bd m">중상</span></div>
+    <p class="ct-d" style="margin-top:5px">자료→해석→한계 루틴이 일부 교과에서 확인됨, 2학년부터 정량 습관 확장 필요</p>
+    <div class="ev"><span class="tg">영어</span>CNN 기사 어휘 비율 도표 분석. 전문 기사에서 학술적 어휘 비중 높음을 수치로 확인.</div>
+    <div class="ev"><span class="tg">통합과학</span>워터릴리 발전기의 <b>유속 7.2km/h · 최대 25W 출력</b> 근거 제시. 풍속 자료 비교하며 적용 한계 점검.</div>
+    <div class="ev" style="border-left-color:var(--orange)"><span class="tg" style="background:var(--orange-bg);color:var(--orange)">보완</span>2·3학년 과학 교과에서 <b>표/그래프/단위/가정/한계</b> 문장을 습관화하면 A4가 핵심 역량으로 확립.</div>
+  </div>
+
+  <div class="cd" id="a5-card">
+    <div class="ct-t"><span class="lc">A5</span>성장 궤적<span class="bd b">구축 중</span></div>
+    <p class="ct-d" style="margin-top:5px">1학년 데이터만으로는 궤적 형성 전 — 2학년부터 '같은 루틴의 심화'로 자연스럽게 만들어짐</p>
+    <div class="ev" style="border-left-color:var(--blue)"><span class="tg" style="background:var(--blue-bg);color:var(--blue)">전략</span>분야명을 직접 언급하지 말고, <b>관찰→설계→정량→한계→수정</b> 루틴이 매 학기 반복·심화되면 평가자가 성장선을 읽어냄.</div>
+  </div>
+</div>
+
+<!-- ═══ TAB 2: 성취기준 점검 ═══ -->
+<div class="sec" id="curr">
+  <div class="sh"><h2>📋 1학년 성취기준 적합성 점검</h2><p>2022 개정교육과정 공통과목 성취기준과 세특 표현의 정합성 분석</p></div>
+
+  <div class="cd" style="border-color:rgba(234,88,12,.3)">
+    <div class="ct-t" style="color:#ea580c">🚨 성취기준 초과 표현 발견 (수정 필요)</div>
+    <p class="ct-d" style="margin-top:6px">1학년 학생이 접근하기 어려운 고급 용어나 개념이 일부 포함됨</p>
+  </div>
+
+  <div class="ac op">
+    <div class="ah" onclick="tog(this)"><h3>⚠️ 문제 1: "이심률" (동아리 세특)</h3><span class="aw">▾</span></div>
+    <div class="ab"><div class="ai">
+      <div class="sl">현재 표현</div>
+      <p class="ct-d">"고도, 속도, <b>이심률</b> 등에 따른 궤도 특성을 비교하고 분석"</p>
+      <div class="cur-check">
+        <h4>⚠️ 성취기준 불일치</h4>
+        <p><b>"이심률(eccentricity)"</b>은 원뿔곡선(타원·포물선·쌍곡선)의 편평도를 나타내는 수학 개념으로, <b>기하 과목(2학년 이상)</b>에서 다룹니다. 1학년 공통수학에서는 이차함수의 그래프만 다루며, 타원·쌍곡선 방정식은 학습하지 않습니다. 따라서 1학년 학생이 "이심률"이라는 용어를 스스로 사용하기 어렵습니다.</p>
+      </div>
+      <div class="sl">수정안</div>
+      <div class="ex">"궤도의 분류 기준(고도·속도)과 형성 원리를 체계적으로 분석하고, <b>원 궤도와 타원 궤도의 차이</b>를 비교함. 정지궤도가 통신 위성에 활용되는 물리적 이유를 여러 조건과 연계해 설명함."</div>
+      <div class="insight"><h4>수정 근거</h4><p>"원 궤도 vs 타원 궤도"는 1학년도 시각적으로 이해 가능하며, "이심률" 없이도 궤도의 형태 차이를 설명할 수 있습니다. 실제로 케플러 제1법칙을 설명할 때도 "타원"이라는 단어만으로 충분합니다.</p></div>
+    </div></div>
+  </div>
+
+  <div class="ac">
+    <div class="ah" onclick="tog(this)"><h3>⚠️ 문제 2: "난류 운동 에너지·난류 동점성 계수" (동아리 세특)</h3><span class="aw">▾</span></div>
+    <div class="ab"><div class="ai">
+      <div class="sl">현재 표현</div>
+      <p class="ct-d">"<b>난류 운동 에너지</b>와 <b>난류 동점성 계수</b> 시각화 자료를 활용해 와류 발생 정도를 분석"</p>
+      <div class="cur-check">
+        <h4>⚠️ 성취기준 경계선</h4>
+        <p>이 용어들은 <b>유체역학(대학 수준)</b>의 전문 개념입니다. 1학년 통합과학에서는 "운동 에너지"만 다루며, "난류·층류 구분" 정도는 가능하나 "난류 동점성 계수" 같은 정량 지표는 학습하지 않습니다. 다만 <b>동아리 활동에서 시뮬레이션 프로그램이 제공한 시각화 자료를 보고 설명</b>한 것이라면 허용 가능합니다.</p>
+      </div>
+      <div class="sl">수정안 (안전)</div>
+      <div class="ex">"풍동 실험에서 두 익형의 구조적 차이에 따른 <b>공기 흐름 패턴</b>을 관찰하고, 시뮬레이션 결과의 <b>와류(소용돌이) 발생 정도</b>를 시각화 자료로 비교 분석함. 실험 결과를 비판적으로 성찰하며 개선점을 인식함."</div>
+      <div class="insight"><h4>수정 근거</h4><p>"공기 흐름 패턴", "와류(소용돌이)"는 1학년도 이해 가능한 직관적 표현입니다. 전문 용어 대신 현상 중심으로 기술하면 성취기준에 부합하면서도 역량은 충분히 드러납니다.</p></div>
+    </div></div>
+  </div>
+
+  <div class="ac">
+    <div class="ah" onclick="tog(this)"><h3>✅ 적합 사례 1: GPS 좌표계 (수학 세특)</h3><span class="aw">▾</span></div>
+    <div class="ab"><div class="ai">
+      <div class="sl">현재 표현</div>
+      <p class="ct-d">"GPS 측량 기술에서 <b>구의 방정식</b>을 활용해 위치를 추정하는 원리를 분석"</p>
+      <div class="hlbox">
+        <h4>✅ 성취기준 적합</h4>
+        <p><b>공통수학1</b> 성취기준 [10수학03-06] "좌표평면에서 원과 직선의 위치 관계를 이해한다"의 확장으로, <b>3차원 구의 방정식</b>은 고1이 이해 가능한 수준입니다. 특히 "GPS 3개 위성의 거리 교점 = 위치"는 직관적이며, 성취기준 내 심화 탐구로 적절합니다.</p>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="ac">
+    <div class="ah" onclick="tog(this)"><h3>✅ 적합 사례 2: 케플러 법칙 (과탐실험 세특)</h3><span class="aw">▾</span></div>
+    <div class="ab"><div class="ai">
+      <div class="sl">현재 표현</div>
+      <p class="ct-d">"<b>타원궤도 법칙, 면적 법칙, 주기-반지름 법칙</b>의 개념을 역사적 맥락과 함께 정리"</p>
+      <div class="hlbox">
+        <h4>✅ 성취기준 적합</h4>
+        <p><b>통합과학</b> 성취기준 [10통과04-03] "태양계 행성의 운동을 과학사적 관점에서 이해한다"에 정확히 부합합니다. 케플러 법칙은 고1 통합과학에서 다루는 표준 내용이며, "타원궤도"는 이심률 개념 없이도 설명 가능합니다.</p>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="ac">
+    <div class="ah" onclick="tog(this)"><h3>✅ 적합 사례 3: 공기저항 오차 분석 (통합과학 세특)</h3><span class="aw">▾</span></div>
+    <div class="ab"><div class="ai">
+      <div class="sl">현재 표현</div>
+      <p class="ct-d">"가속도 값이 이론값보다 작게 나온 이유를 <b>공기저항</b>과 영상 프레임 누락에서 찾고, 무게 큰 공 사용 등 보완책 제안"</p>
+      <div class="hlbox">
+        <h4>✅ 성취기준 적합</h4>
+        <p><b>통합과학</b> 성취기준 [10통과03-01] "자유 낙하와 등가속도 운동을 이해하고 이를 활용하여 물체의 운동을 예측한다"의 완벽한 사례입니다. "공기저항"은 고1 수준에서 충분히 이해 가능하며, 오차 원인 분석→보완 설계는 탐구 역량의 핵심입니다.</p>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="kb" style="margin-top:24px">
+    <h3>📌 성취기준 점검 원칙</h3>
+    <p><b>① 해당 학년 교육과정에서 학습한 개념인가?</b><br>
+    <b>② 학생이 스스로 접근 가능한 수준인가?</b><br>
+    <b>③ 전문 용어 없이도 현상을 설명할 수 있는가?</b><br><br>
+    "이심률", "난류 동점성 계수" 같은 고급 용어는 삭제하고, <b>"원 궤도 vs 타원 궤도", "와류 발생 패턴"</b> 같은 직관적 표현으로 대체하면 성취기준에 부합하면서도 역량은 충분히 드러납니다.</p>
+  </div>
+</div>
+
+<!-- ═══ TAB 3: 선언 vs 함의 ═══ -->
+<div class="sec" id="lang">
+  <div class="sh"><h2>🔍 선언의 언어 vs 함의의 언어</h2><p>"Show, don't tell" — 학생부 기재의 핵심 원칙</p></div>
+
+  <div class="cd" style="border-color:rgba(61,107,78,.25)">
+    <div class="ct-t" style="color:var(--accent)">핵심 원리</div>
+    <p class="ct-d" style="margin-top:6px">
+      <b>"나는 항공우주공학에 관심 있다"</b>고 선언하는 순간, 평가자는 <em>"기획된 서류"</em>라는 의심의 렌즈를 끼게 됩니다.<br>
+      반면 <b>역량의 과정만 기록</b>하면, 평가자가 스스로 <em>"이 학생은 이 분야 사람이구나"</em>를 읽어냅니다.<br>
+      그 <b>'읽어냄'의 순간</b>이 바로 설득이 일어나는 지점입니다.
+    </p>
+  </div>
+
+  <div class="sh" style="margin-top:28px"><h2>현재 기록에서 발견되는 '선언' 패턴 분석</h2></div>
+
+  <div class="cd">
+    <div class="ct-t" style="color:var(--red)">🔴 치명적 선언 1 — 동아리 세특</div>
+    <div class="compare-box">
+      <div class="cmp decl">"<b>항공우주공학 분야에 뚜렷한 진로 의식</b>을 가지고 동아리 활동 전반에 성실히 참여"</div>
+      <div class="cmp impl">"궤도의 분류 기준(고도·속도)과 형성 원리를 체계적으로 분석하고, 정지궤도가 통신 위성에 활용되는 물리적 근거를 조건과 연계해 설명함"</div>
+    </div>
+    <div class="warn">
+      <h4>🚨 최우선 수정 필요</h4>
+      <p>"뚜렷한 진로 의식"은 <b>감정 보고</b>일 뿐입니다. 오른쪽처럼 <b>궤도·속도·고도 분석</b> 행동만 기록해도 방향은 명확히 읽힙니다.</p>
+    </div>
+  </div>
+
+  <div class="cd">
+    <div class="ct-t" style="color:var(--red)">🔴 치명적 선언 2 — 진로활동</div>
+    <div class="compare-box">
+      <div class="cmp decl">"복합 시스템을 통합적으로 설계·개발하는 <b>항공우주공학자로 진로 의지를 구체화</b>함"</div>
+      <div class="cmp impl">"INS의 누적 오차와 GPS의 실시간 추적 한계를 비교하며, 두 항법 시스템이 상호 보완적으로 작동함을 이해하고 통합 설계의 필요성을 인식함"</div>
+    </div>
+    <div class="warn">
+      <h4>🚨 최우선 수정 필요</h4>
+      <p>"항공우주공학자로 진로 의지 구체화"는 선언입니다. <b>INS·GPS 통합·오차 분석</b> 역량만으로도 충분히 읽힙니다.</p>
+    </div>
+  </div>
+
+  <div class="cd">
+    <div class="ct-t" style="color:var(--red)">🔴 치명적 선언 3 — 수학 세특</div>
+    <div class="compare-box">
+      <div class="cmp decl">"좌표계 개념이 상대성 이론과 연결되어 <b>항공우주공학 분야에 응용</b>되는 과정을 탐구"</div>
+      <div class="cmp impl">"좌표계 개념이 GPS 위치 추정에서 구의 방정식이 공간 정보를 해석하는 도구로 작용함을 분석하고, 3차원 도형의 방정식이 다양한 기술 분야에 활용됨을 탐구함"</div>
+    </div>
+  </div>
+
+  <div class="sh" style="margin-top:28px"><h2>✓ 이미 완벽한 '함의형' 문장들</h2></div>
+  
+  <div class="cd" style="border-color:rgba(42,125,74,.2)">
+    <div class="ct-t" style="color:var(--green)">완벽 1 — 정보 (인공위성 계산)</div>
+    <div class="ev" style="border-left-color:var(--green)">"사용자에게 인공위성의 <b>현재 속력과 고도</b>를 입력받아 <b>궤도 유지 최소 속력, 1회전 시간, 목표 고도 도달 시 필요한 가속·감속 값</b>을 계산해 주는 프로그램을 제작함"</div>
+    <p class="ct-d" style="margin-top:8px">분야명 없이 <b>궤도 계산 알고리즘</b>만으로 방향이 명확히 읽히는 완벽한 함의입니다.</p>
+  </div>
+
+  <div class="cd" style="border-color:rgba(42,125,74,.2)">
+    <div class="ct-t" style="color:var(--green)">완벽 2 — 통합과학 (오차 분석)</div>
+    <div class="ev" style="border-left-color:var(--green)">"가속도 값이 이론값보다 작게 나온 이유를 <b>공기저항과 영상 프레임 누락</b>에서 찾고, 영상 촬영 횟수 증가나 무게가 큰 공 사용 등 보완책을 제안함"</div>
+    <p class="ct-d" style="margin-top:8px"><b>오차 원인→보완 설계</b>의 과정이 실험 과학자의 태도를 완벽히 보여줍니다.</p>
+  </div>
+</div>
+
+<!-- ═══ TAB 4: 표현 리스크 ═══ -->
+<div class="sec" id="risk">
+  <div class="sh"><h2>⚠️ 기재요령 + 성취기준 이중 리스크</h2><p>2025 기재요령 + 2022 교육과정 성취기준 이중 점검</p></div>
+
+  <div class="cd">
+    <div class="ct-t" style="color:var(--red)">🔴 리스크 1: 진로 분야 직접 선언 (3곳)</div>
+    <p class="ct-d" style="margin-top:6px">① 동아리: "항공우주공학 분야에 뚜렷한 진로 의식"<br>
+    ② 진로활동: "항공우주공학자로 진로 의지를 구체화"<br>
+    ③ 수학: "항공우주공학 분야에 응용"</p>
+    <div class="warn" style="margin-top:8px">
+      <h4>🚨 최우선 수정</h4>
+      <p>3곳 모두 제거. 역량 과정만 남기면 같은 방향이 더 강하게 읽힙니다.</p>
+    </div>
+  </div>
+
+  <div class="cd">
+    <div class="ct-t" style="color:var(--orange)">🟠 리스크 2: 성취기준 초과 용어 (2곳)</div>
+    <p class="ct-d" style="margin-top:6px">① 동아리: "<b>이심률</b>" (기하 과목 개념, 1학년 부적합)<br>
+    ② 동아리: "<b>난류 운동 에너지·난류 동점성 계수</b>" (대학 수준, 경계선)</p>
+    <div class="warn" style="margin-top:8px;background:var(--yellow-bg);border-color:rgba(158,108,22,.15)">
+      <h4 style="color:var(--yellow)">⚠️ 수정 권장</h4>
+      <p>"이심률" → "원 궤도와 타원 궤도의 차이"<br>
+      "난류 운동 에너지" → "공기 흐름 패턴·와류 발생"</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ TAB 5: 보완 우선순위 ═══ -->
+<div class="sec" id="pri">
+  <div class="sh"><h2>🎯 보완 우선순위</h2><p>"무엇을 더 했는가"가 아니라, 기존 역량을 함의의 언어로 재구성</p></div>
+
+  <div class="pri-item"><div class="pri-num">1</div><div class="pri-content">
+    <h4>진로 선언 완전 제거 (3곳) — 최우선</h4>
+    <p>동아리·진로활동·수학 세특에서 "항공우주공학 분야", "항공우주공학자" 키워드 3곳 모두 삭제. <b>공기저항·익형·풍동·GPS·INS·궤도·케플러·착륙·추진</b> 같은 역량 용어만 남기면, 평가자가 스스로 "항공·우주·발사체 분야"를 읽어냄.</p>
+  </div></div>
+
+  <div class="pri-item"><div class="pri-num">2</div><div class="pri-content">
+    <h4>성취기준 초과 용어 수정 (2곳)</h4>
+    <p><b>"이심률"</b> → "원 궤도와 타원 궤도의 차이"로 수정 (동아리 세특)<br>
+    <b>"난류 운동 에너지·난류 동점성 계수"</b> → "공기 흐름 패턴·와류(소용돌이) 발생"으로 수정 (동아리 세특)</p>
+  </div></div>
+
+  <div class="pri-item"><div class="pri-num">3</div><div class="pri-content">
+    <h4>A3 강화 — 국어·영어·사회에 '오류→수정' 루틴 추가</h4>
+    <p>통합과학·정보·동아리에서 확인된 <b>"오차 인식→원인 분류→보완 설계"</b> 루틴을 인문 교과에도 적용. 예: <b>국어</b> "탈원전 주장문 초기 논거의 약점(자료 부족)을 발견하고 통계 자료를 추가해 논증 강화" / <b>영어</b> "도표 해석 초안에 피드백을 반영해 수치 근거 보완" / <b>한국사</b> "신간회 해소에 대한 초기 평가를 선행연구와 비교하며 관점 수정"</p>
+  </div></div>
+
+  <div class="pri-item"><div class="pri-num">4</div><div class="pri-content">
+    <h4>A4 정량 루틴 — 2학년 물리에서 데이터 습관화</h4>
+    <p>영어(어휘 비율 도표)·통합과학(유속 7.2km/h·25W 출력)·진로활동(GPU 전력 정량 분석)에서 보여준 <b>수치 근거 활용</b>을 2학년 물리·화학에서도 반복. <b>표/그래프/단위/가정/한계</b> 문장이 습관적으로 등장하면, 정량적 사고가 이 학생의 특성으로 읽힘.</p>
+  </div></div>
+
+  <div class="pri-item"><div class="pri-num">5</div><div class="pri-content">
+    <h4>A5 "선언 없는 궤적" — 같은 루틴의 자연스러운 심화</h4>
+    <p>진로를 선언하지 않고, <b>관찰→설계→정량→한계→수정</b> 루틴이 1학년(좌표·알고리즘·오차 분석) → 2학년(물리·기하·정량 강화) → 3학년(독립 설계·통합 검증)으로 매 학기 깊어지면, 평가자가 성장 궤적을 스스로 읽어냄. 이것이 가장 극적인 서사.</p>
+  </div></div>
+</div>
+
+<!-- ═══ TAB 6: 과목 선택 ═══ -->
+<div class="sec" id="course">
+  <div class="sh"><h2>📚 2·3학년 과목 선택 전략</h2><p>2022 개정교육과정 · 과목 선택 자체가 함의를 만든다</p></div>
+
+  <div class="insight"><h4>💡 과목 선택의 함의</h4><p>과목 조합 자체가 "이 학생이 어떤 역량을 쌓고 있는가"를 보여줍니다. 진로를 말하지 않아도, <b>물리Ⅱ + 기하 + 확통 + 과제연구</b>라는 선택이 방향을 함의합니다. 1학년 정보 100점을 바탕으로 정보과학/데이터과학을 추가하면 "정보→정보과학" 상승선이 자연스럽게 읽힙니다.</p></div>
+
+  <div class="cd"><div class="ct-t" style="color:var(--green)">✦ 최우선 조합</div>
+  <p class="ct-d" style="margin:8px 0">"역학 + 기하·좌표 + 정량 분석 + 통합 설계"의 사각 역량</p>
+  <table class="tb" style="margin-top:12px">
+    <thead><tr><th>과목</th><th>역량</th><th>함의하는 분야</th></tr></thead>
+    <tbody>
+      <tr><td><b>물리Ⅰ·Ⅱ</b></td><td>역학·운동·에너지</td><td><span class="fbd air">항공</span><span class="fbd space">우주</span><span class="fbd launch">발사체</span> 공통 기초</td></tr>
+      <tr><td><b>기하</b></td><td>3차원 벡터·좌표</td><td><span class="fbd space">궤도 해석</span><span class="fbd air">자세 제어</span></td></tr>
+      <tr><td><b>확률과 통계</b></td><td>데이터 분석·추론</td><td>실험 신뢰도 검증·측정 오차 분석</td></tr>
+      <tr><td><b>미적분</b></td><td>변화율·적분</td><td>운동 방정식·궤적 최적화</td></tr>
+      <tr><td><b>과학과제 연구</b></td><td>독립 설계·검증</td><td>연구자적 태도 완성 (전 분야 공통)</td></tr>
+      <tr><td><b>정보과학/데이터과학</b></td><td>시뮬레이션·모델링</td><td>정보(100점)→정보과학 상승선</td></tr>
+    </tbody>
+  </table>
+  <div class="ev" style="margin-top:12px;border-left-color:var(--green)"><b>핵심</b>: 이 조합에서 "항공우주"라는 단어가 한 번도 등장하지 않아도, <b>물리Ⅱ + 기하 + 과제연구</b>는 "복합 시스템 설계·분석" 방향을 명확히 함의합니다. 정보 100점을 바탕으로 정보과학/데이터과학을 추가하면 "알고리즘→시뮬레이션" 역량선이 자연스럽게 읽힙니다.</div>
+  </div>
+
+  <div class="cd" style="margin-top:16px"><div class="ct-t" style="color:var(--blue)">✧ 대안 조합 (Ⅱ과목 미개설 시)</div>
+  <p class="ct-d" style="margin:8px 0">물리Ⅱ·기하 미개설 학교를 위한 보완 전략</p>
+  <table class="tb" style="margin-top:12px">
+    <thead><tr><th>과목</th><th>보완 전략</th></tr></thead>
+    <tbody>
+      <tr><td><b>물리Ⅰ 심화</b></td><td>실험 설계 정교함(변인 통제·반복 측정·한계 분석) 극대화. 오차 분석 루틴을 세특에 반복 기록.</td></tr>
+      <tr><td><b>확률과 통계 + 미적분</b></td><td>필수 선택. 정량 분석 도구 확보. 통합과학의 "반복 측정" 개념을 통계적으로 정교화.</td></tr>
+      <tr><td><b>정보과학/데이터과학</b></td><td>정보(100점)의 알고리즘 역량을 시뮬레이션·모델링으로 확장. 운동 방정식 수치해석 등.</td></tr>
+      <tr><td><b>생활과 윤리</b></td><td>기술 윤리(AI 윤리, 자율주행 딜레마, 우주 개발 윤리) 탐구로 인문적 성찰 추가.</td></tr>
+    </tbody>
+  </table>
+  <div class="ev" style="margin-top:12px;border-left-color:var(--blue)"><b>보완 포인트</b>: Ⅱ과목 없이도 <b>물리Ⅰ에서 오차 분석·반복 측정·한계 인식</b>을 극대화하고, 정보과학에서 시뮬레이션 역량을 보완하면 충분히 방향성이 읽힙니다. 통합사회의 "발사장 환경 문제" 탐구처럼, 윤리 과목에서 기술의 사회적 영향을 탐구하면 인문적 깊이도 확보됩니다.</div>
+  </div>
+
+  <div class="hlbox" style="margin-top:20px">
+    <h4>📌 1학년 정보 100점의 전략적 활용</h4>
+    <p>정보에서 <b>완전수 판별 알고리즘(전교 5% 정답률), 인공위성 궤도 계산 프로그램</b> 등 고난도 과제를 해결한 것은 이미 알고리즘 설계 역량이 상당함을 증명합니다. 2·3학년에서 <b>정보과학 → 데이터과학</b>으로 이어지면 "정보(100점) → 정보과학 → 데이터과학"의 상승선이 자연스럽게 읽히며, 진로 선언 없이도 "이 학생은 계산·시뮬레이션 기반 분야를 하는구나"가 명확해집니다.</p>
+  </div>
+</div>
+
+<!-- ═══ TAB 7: 과목별 보완 ═══ -->
+<div class="sec" id="subj">
+  <div class="sh"><h2>🔧 과목별 보완 — 함의형 세특 문장</h2><p>진로 키워드 없이, 역량의 루틴만으로 전공이 읽히는 문장 설계</p></div>
+
+  <div class="ac op">
+    <div class="ah" onclick="tog(this)"><h3>⚛️ 물리 — "관찰→변인→정량→해석→한계"</h3><span class="aw">▾</span></div>
+    <div class="ab"><div class="ai">
+      <div class="sl">수업 행동 루틴</div>
+      <p class="ct-d">운동 관찰 → 변인 구분(속력·각도·질량) → 정량 측정 → 이론값과 비교 → 오차 원인 분석 → 보완 조건 설계</p>
+      <div class="sl">함의형 세특 문장</div>
+      <div class="ex">"포물선 운동 실험에서 초기 속력과 발사 각도에 따른 수평 도달 거리를 정량적으로 측정하고, 이론 예측값과 실험값의 차이를 공기저항과 측정 정밀도로 분류함. 반복 측정을 통해 오차 범위를 확인하며 실험 설계의 한계를 명시하고, 공기저항 최소화를 위한 실험 환경 개선 방안을 제안함."</div>
+      <div style="margin-top:8px">→ <span class="fbd air">공기 중 운동</span><span class="fbd launch">비행 궤적</span> 역량 함의</div>
+      <div class="insight"><h4>평가자가 읽어내는 것</h4><p>"항공"이나 "우주" 없이도, <b>운동 변인 분석 + 정량 측정 + 오차 분류</b>의 조합은 역학 기반 분야의 사고 습관을 보여줍니다. 1학년 통합과학에서 보여준 "자유낙하 오차 분석" 루틴이 물리에서 심화되면 자연스러운 성장선이 됩니다.</p></div>
+      <div class="sl">1학년 통합과학과의 연결</div>
+      <p class="ct-d">통합과학: "가속도 값이 이론값보다 작게 나온 이유를 공기저항과 영상 프레임 누락에서 찾음" → 물리: "포물선 운동에서 이론값과 실험값 차이를 공기저항과 측정 정밀도로 분류" → <b>같은 루틴의 심화</b>가 자연스럽게 읽힙니다.</p>
+    </div></div>
+  </div>
+
+  <div class="ac">
+    <div class="ah" onclick="tog(this)"><h3>📐 기하 — "공간 구조→좌표→벡터→해석"</h3><span class="aw">▾</span></div>
+    <div class="ab"><div class="ai">
+      <div class="sl">함의형 세특 문장</div>
+      <div class="ex">"3차원 공간에서 직선과 평면의 위치 관계를 벡터로 표현하고, 두 직선 사이의 최단 거리를 좌표와 내적을 이용해 계산함. 공간 도형의 성질을 벡터의 연산으로 해석하며, 좌표계 설정 방식에 따라 계산 복잡도가 달라짐을 비교 분석함. 벡터의 내적과 외적이 각도·넓이·부피 계산의 통합 도구임을 인식함."</div>
+      <div style="margin-top:8px">→ <span class="fbd space">궤도 계산</span><span class="fbd air">자세 제어</span> 기초 도구</div>
+      <div class="insight"><h4>평가자가 읽어내는 것</h4><p><b>3차원 공간·벡터·좌표계</b>는 궤도 해석·자세 제어 등 복합 시스템 설계의 기초 도구입니다. 진로를 말하지 않아도 방향이 읽힙니다.</p></div>
+      <div class="sl">1학년 수학과의 연결</div>
+      <p class="ct-d">공통수학: "GPS 측량에서 구의 방정식을 활용해 위치를 추정하는 원리 분석" → 기하: "3차원 공간에서 벡터와 좌표로 위치 관계를 해석" → <b>2차원에서 3차원으로의 자연스러운 확장</b>이 읽힙니다.</p>
+    </div></div>
+  </div>
+
+  <div class="ac">
+    <div class="ah" onclick="tog(this)"><h3>📊 확률과 통계 — "데이터→모형→추론→신뢰도"</h3><span class="aw">▾</span></div>
+    <div class="ab"><div class="ai">
+      <div class="sl">함의형 세특 문장</div>
+      <div class="ex">"표본 데이터에서 모평균을 추정하고, 신뢰구간을 계산하여 추론의 신뢰도를 정량적으로 평가함. 표본 크기에 따른 신뢰구간 변화를 비교하며, 통계적 결론의 한계를 명시함. 실험 데이터의 신뢰성 검증에 통계적 도구가 필수임을 인식하고, 반복 측정의 중요성을 실험 설계와 연결함."</div>
+      <div style="margin-top:8px">→ 실험 데이터 신뢰도 검증 역량 (전 분야 공통)</div>
+      <div class="insight"><h4>평가자가 읽어내는 것</h4><p><b>신뢰구간·표본 크기·한계 명시</b>는 실험 데이터를 다루는 연구자의 핵심 역량입니다. 1학년 통합과학에서 "반복 측정"을 강조한 것과 자연스럽게 연결됩니다.</p></div>
+    </div></div>
+  </div>
+
+  <div class="ac">
+    <div class="ah" onclick="tog(this)"><h3>💻 정보과학 / 데이터과학 — "알고리즘→시뮬레이션→검증"</h3><span class="aw">▾</span></div>
+    <div class="ab"><div class="ai">
+      <div class="sl">함의형 세특 문장</div>
+      <div class="ex">"운동 방정식을 수치 해석으로 구현하여 시간에 따른 위치·속도 변화를 시뮬레이션함. 초기 조건(속력·각도) 변화에 따른 궤적 차이를 비교하고, 시뮬레이션 결과의 정확도를 이론값과 대조하여 알고리즘의 한계를 점검함. 시간 간격(dt)에 따른 오차 누적을 분석하며 수치해석의 안정성 조건을 탐구함."</div>
+      <div style="margin-top:8px">→ <span class="fbd space">궤도 시뮬레이션</span><span class="fbd air">비행 역학 모델링</span> 역량</div>
+      <div class="insight"><h4>평가자가 읽어내는 것</h4><p><b>운동 방정식 시뮬레이션 + 오차 누적 분석</b>은 물리와 정보의 완벽한 융합입니다. 이것만으로도 "이 학생은 계산·시뮬레이션 기반 분야를 한다"가 명확히 읽힙니다.</p></div>
+      <div class="sl">1학년 정보와의 연결</div>
+      <p class="ct-d">정보: "인공위성 속력·고도로 궤도 유지 속력·1회전 시간 계산 프로그램 제작" → 정보과학: "운동 방정식을 시뮬레이션하여 시간에 따른 위치·속도 변화 구현" → <b>정적 계산에서 동적 시뮬레이션으로의 자연스러운 심화</b>가 읽힙니다.</p>
+    </div></div>
+  </div>
+
+  <div class="ac">
+    <div class="ah" onclick="tog(this)"><h3>🔬 과학과제 연구 — "실적형 제거 + 순수 과정"</h3><span class="aw">▾</span></div>
+    <div class="ab"><div class="ai">
+      <div class="sl">함의형 세특 문장 (제목/주제 없이)</div>
+      <div class="ex">"연구 질문을 설정하고 독립·종속·통제 변인을 구분하여 실험을 설계함. 예비 실험에서 측정값 변동 원인을 분석해 실험 조건을 수정하고, 반복 측정 데이터를 통계적으로 처리하여 결과의 신뢰도와 한계를 점검함. 선행연구와 비교하며 연구의 의의와 한계를 논리적으로 정리하고, 후속 연구 방향을 제안함."</div>
+      <div style="margin-top:8px">→ 연구자적 태도 완성 (전 분야 공통)</div>
+      <div class="insight"><h4>핵심</h4><p>이 문장에 전공명이 없습니다. 그런데 읽으면 <b>"이 학생은 실험 설계와 검증을 하는 사람이구나"</b>가 떠오릅니다. 이것이 함의의 힘입니다. 1학년에서 3학년까지 <b>관찰→설계→정량→한계→수정</b> 루틴이 반복·심화되면, 평가자가 성장 궤적을 스스로 읽어냅니다.</p></div>
+    </div></div>
+  </div>
+
+  <div class="ac">
+    <div class="ah" onclick="tog(this)"><h3>📖 국어 — "해석→반례→수정→논증 강화"</h3><span class="aw">▾</span></div>
+    <div class="ab"><div class="ai">
+      <div class="sl">현재 세특의 보완 지점</div>
+      <p class="ct-d">현재: "탈원전 정책을 시행하면 안 된다는 입장을 논리적인 글로 작성함" → 과정 불명확</p>
+      <div class="sl">함의형 세특 문장</div>
+      <div class="ex">"탈원전 정책 주장문 작성 과정에서 초기 논거의 약점(비용 비교 자료 부족)을 발견하고, 선행 통계 자료를 추가해 논증을 강화함. 예상 반론(재생에너지 기술 발전)에 대한 재반론을 구조화하며 주장의 완성도를 높임."</div>
+      <div class="insight"><h4>핵심</h4><p><b>초기 논거 약점 발견 → 자료 보완 → 재반론 구조화</b>의 과정이 국어에서도 "오류→수정" 루틴을 보여줍니다. 이것이 과학과 같은 사고 습관임을 평가자가 읽어냅니다.</p></div>
+    </div></div>
+  </div>
+
+  <div class="ac">
+    <div class="ah" onclick="tog(this)"><h3>🌐 영어 — "자료 분석→한계 지적→대안 해석"</h3><span class="aw">▾</span></div>
+    <div class="ab"><div class="ai">
+      <div class="sl">현재 세특의 강점 (이미 잘되어 있음)</div>
+      <p class="ct-d">현재: "CNN 기사 어휘 비율 도표 분석" → 정량 분석 우수 ✓</p>
+      <div class="sl">추가 보완 방향</div>
+      <div class="ex">"영어 도표 자료에서 시장 성장률의 추이와 근거를 분석하고, 자료의 한계(표본 크기·지역 편향)를 지적한 뒤 대안적 해석(다른 지역 데이터와 비교)을 영어로 구조화하여 발표함. 피드백을 반영해 도표 설명의 정밀도를 높임."</div>
+    </div></div>
+  </div>
+
+  <div class="ac">
+    <div class="ah" onclick="tog(this)"><h3>📜 한국사 — "사료 분석→관점 비교→평가 수정"</h3><span class="aw">▾</span></div>
+    <div class="ab"><div class="ai">
+      <div class="sl">현재 세특의 보완 지점</div>
+      <p class="ct-d">현재: "신간회 해소에 대해 긍정·부정 평가를 조사하고 의견 발표" → 수정 과정 없음</p>
+      <div class="sl">함의형 세특 문장</div>
+      <div class="ex">"신간회 해소에 대한 초기 평가(긍정)를 선행연구와 비교하며, 조직 유지의 상징성을 간과했다는 점을 인식하고 관점을 수정함. 해소 이유(탄압·이념 갈등)와 유지 필요성(독립운동 구심점)을 균형있게 분석하며 역사적 판단의 복잡성을 이해함."</div>
+    </div></div>
+  </div>
+</div>
+
+<!-- ═══ TAB 8: 3년 성장 아크 ═══ -->
+<div class="sec" id="arc">
+  <div class="sh"><h2>🚀 3년 성장 아크 — "선언 없는 궤적"</h2><p>진로를 말하지 않고, 역량의 심화만으로 방향이 읽히는 서사</p></div>
+
+  <div class="kb">
+    <h3>진로 선언 이전 = 다양한 역량의 축적<br>진로 선언 이후 = 같은 역량이 자연스럽게 수렴</h3>
+    <p>이 '수렴의 순간'을 평가자가 <b>스스로 발견</b>하게 만드는 것이 가장 극적인 서사입니다. 이준 학생의 경우, 1학년에서 이미 <b>좌표·알고리즘·오차 분석</b>이라는 명확한 패턴이 형성되었으므로, 2·3학년에서 같은 루틴을 심화하기만 하면 됩니다.</p>
+  </div>
+
+  <div class="fl">
+    <div class="fs"><div class="fi">🌱</div><div class="fla">1학년 (완료)</div><div class="ft">다양한 역량 축적<br><small style="color:var(--text3)">좌표·알고리즘·오차</small></div></div>
+    <div class="fs"><div class="fi">⚛️</div><div class="fla">2학년</div><div class="ft">같은 루틴의 심화<br><small style="color:var(--text3)">물리·기하·정량 강화</small></div></div>
+    <div class="fs"><div class="fi">🔬</div><div class="fla">3학년</div><div class="ft">방법론의 독립<br><small style="color:var(--text3)">독립 설계·통합 검증</small></div></div>
+    <div class="fs"><div class="fi">✨</div><div class="fla">결과</div><div class="ft">평가자의 발견<br><small style="color:var(--text3)">"이 학생은 이 분야 사람"</small></div></div>
+  </div>
+
+  <div class="cd" style="margin-top:18px">
+    <div class="ct-t" style="color:var(--accent)">📅 학년별 루틴 심화 로드맵</div>
+    <table class="tb" style="margin-top:8px">
+      <thead><tr><th>학년</th><th>핵심</th><th>함의가 만들어지는 방식</th></tr></thead>
+      <tbody>
+        <tr><td><b>1학년<br>(완료)</b></td><td>기초 역량 다방면 축적</td><td>• GPS 좌표계 분석 (수학)<br>• 완전수 알고리즘·인공위성 계산 프로그램 (정보 100점)<br>• 자유낙하 오차 분석·에어포일 실험 (통합과학·동아리)<br>• 케플러 법칙·GPS·INS 항법 (동아리·진로활동)<br>→ 아직 방향 미확정 = <b>자연스러움</b></td></tr>
+        <tr><td><b>2학년</b></td><td>루틴의 심화 + 반복</td><td>• 포물선 운동 오차 분석 (물리) ← 통합과학 루틴 심화<br>• 3차원 벡터·좌표계 (기하) ← 수학 좌표계 확장<br>• 운동 방정식 시뮬레이션 (정보과학) ← 정보 알고리즘 심화<br>• 신뢰구간·표본 크기 (확통) ← 반복 측정 개념 정량화<br>→ 진로 선언 없이도 <b>패턴이 수렴</b></td></tr>
+        <tr><td><b>3학년</b></td><td>방법론 독립 + 학술성</td><td>• 과제연구: 스스로 설계→반복 측정→통계 처리→한계 명시→후속 제안<br>• 물리Ⅱ: 복잡한 역학 시스템 분석<br>• 데이터과학: 시뮬레이션 데이터 분석·검증<br>→ 평가자가 "<b>이 학생은 연구자</b>"를 확신</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="cd" style="margin-top:12px">
+    <div class="ct-t" style="color:var(--teal)">🔗 교과 간 역량 루틴 반복 지도</div>
+    <table class="tb" style="margin-top:8px">
+      <thead><tr><th>역량 루틴</th><th>1학년 (완료)</th><th>2학년 (심화)</th><th>3학년 (독립)</th></tr></thead>
+      <tbody>
+        <tr><td><b>관찰·설정</b></td><td>• 통합과학: 자유낙하 관찰<br>• 수학: GPS 좌표계 관찰</td><td>• 물리: 포물선 운동 관찰<br>• 기하: 3차원 공간 구조</td><td>• 과제연구: 독립 연구 질문 설정</td></tr>
+        <tr><td><b>변인 통제</b></td><td>• 통합과학: 오차 요인 분류<br>• 동아리: 에어포일 조건 분석</td><td>• 물리: 속력·각도 변인<br>• 확통: 표본 크기 통제</td><td>• 과제연구: 독립·종속·통제 변인 구분</td></tr>
+        <tr><td><b>정량 분석</b></td><td>• 정보: 알고리즘 구현(100점)<br>• 영어: 어휘 비율 도표</td><td>• 물리: 거리·시간 정량 측정<br>• 확통: 신뢰구간 계산</td><td>• 과제연구: 반복 측정·통계 처리</td></tr>
+        <tr><td><b>한계 인식</b></td><td>• 통합과학: 공기저항·프레임 누락<br>• 통합과학: 워터릴리 적용 한계</td><td>• 물리: 측정 정밀도 한계<br>• 정보과학: 시뮬레이션 오차 누적</td><td>• 과제연구: 실험 제약·선행연구 비교</td></tr>
+        <tr><td><b>수정·확장</b></td><td>• 통합과학: 무게 큰 공·촬영 횟수<br>• 정보: 단계적 디버깅</td><td>• 물리: 실험 환경 개선<br>• 정보과학: dt 조정</td><td>• 과제연구: 후속 연구 제안</td></tr>
+      </tbody>
+    </table>
+    <div class="insight" style="margin-top:12px"><h4>💡 이 표의 의미</h4><p>같은 5단계 루틴이 <b>1학년→2학년→3학년 모든 교과에서 반복·심화</b>될 때, 평가자는 "이 학생에게는 일관된 사고 습관이 있다"를 읽어냅니다. "항공우주" 키워드 없이도, 이 <b>습관의 패턴</b>이 전공 적합성을 함의합니다. 특히 이준 학생은 1학년에서 이미 이 패턴이 명확하므로, 2·3학년에서 같은 루틴을 심화하기만 하면 "선언 없는 궤적"이 완성됩니다.</p></div>
+  </div>
+
+  <div class="cd" style="margin-top:12px;border-color:rgba(61,107,78,.25)">
+    <div class="ct-t">💎 최종 원칙</div>
+    <p class="ct-d" style="margin-top:6px">
+      <b>대입은 목표가 아닌 형성된 역량의 확인 지점</b>입니다.<br>
+      결과물(무엇을)보다 <b>과정(어떻게)</b>에 주목하세요.<br>
+      방법 · 태도 · 가치 · 신념 — 대입 이후에도 전이 가능한 역량 중심.<br>
+      <b>정규교육과정 이수 충실</b>이 학종의 본질이며,<br>
+      <b>"항공우주"라는 단어 없이, 읽고 나면 그 분야가 떠오르는 기록</b>이 최고의 학생부입니다.<br><br>
+      이준 학생은 1학년에서 이미 <b>좌표·알고리즘·오차 분석 + 공기저항·익형·풍동·GPS·INS·궤도·케플러·착륙·추진</b>의 명확한 패턴을 형성했습니다.<br>
+      2·3학년에서 <b>① "항공우주공학" 키워드 3곳 삭제 ② "이심률"·"난류 동점성 계수" 같은 성취기준 초과 용어 수정 ③ 같은 루틴을 물리·기하·정보과학에서 심화 ④ 과제연구에서 독립 설계·검증 완결</b>만 하면,<br>
+      평가자가 스스로 "이 학생은 <span class="fbd air">항공</span><span class="fbd space">우주</span><span class="fbd launch">발사체</span> 분야 사람이구나"를 읽어내는 <b>완벽한 함의형 학생부</b>가 완성됩니다.
+    </p>
+  </div>
+</div>
+
+</div><!-- /ct -->
+
+<script>
+const F=[
+  {c:'A1',l:'교육과정 충실도',s:98,cl:'#2a7d4a',g:'강점'},
+  {c:'A2',l:'개념 이해 깊이·전이',s:88,cl:'#2a7d4a',g:'강점'},
+  {c:'A3',l:'학습 과정 정교함',s:72,cl:'#9e6c16',g:'중상'},
+  {c:'A4',l:'학술적 문해력',s:68,cl:'#9e6c16',g:'중상'},
+  {c:'A5',l:'성장 궤적',s:42,cl:'#3b5fc0',g:'구축 중'},
+];
+function drawR(){
+  const svg=document.getElementById('radar'),cx=140,cy=140,R=105,n=F.length;let h='';
+  for(let l=1;l<=4;l++){const r=R*l/4;let p=[];for(let i=0;i<n;i++){const a=Math.PI*2*i/n-Math.PI/2;p.push(`${cx+r*Math.cos(a)},${cy+r*Math.sin(a)}`);}h+=`<polygon points="${p.join(' ')}" fill="none" stroke="#d0ccba" stroke-width="1"/>`;}
+  for(let i=0;i<n;i++){const a=Math.PI*2*i/n-Math.PI/2;h+=`<line x1="${cx}" y1="${cy}" x2="${cx+R*Math.cos(a)}" y2="${cy+R*Math.sin(a)}" stroke="#d0ccba" stroke-width="1"/>`;}
+  let dp=[];for(let i=0;i<n;i++){const a=Math.PI*2*i/n-Math.PI/2,r=R*F[i].s/100;dp.push(`${cx+r*Math.cos(a)},${cy+r*Math.sin(a)}`);}
+  h+=`<polygon points="${dp.join(' ')}" fill="rgba(61,107,78,.1)" stroke="#3d6b4e" stroke-width="2.5"/>`;
+  for(let i=0;i<n;i++){const a=Math.PI*2*i/n-Math.PI/2,r=R*F[i].s/100,x=cx+r*Math.cos(a),y=cy+r*Math.sin(a);h+=`<circle cx="${x}" cy="${y}" r="4.5" fill="${F[i].cl}" stroke="#fff" stroke-width="2"/>`;const lx=cx+(R+18)*Math.cos(a),ly=cy+(R+18)*Math.sin(a),anc=Math.abs(Math.cos(a))<.3?'middle':(Math.cos(a)>0?'start':'end');h+=`<text x="${lx}" y="${ly+4}" fill="#84806e" font-size="11" font-weight="600" text-anchor="${anc}" font-family="'Noto Sans KR'">${F[i].c}</text>`;}
+  svg.innerHTML=h;
+  document.getElementById('rleg').innerHTML=F.map(f=>`<div class="li" onclick="document.getElementById('${f.c.toLowerCase()}-card')?.scrollIntoView({behavior:'smooth',block:'center'})"><span class="lc">${f.c}</span><span class="ll">${f.l}</span><span class="bd ${f.g==='강점'?'s':f.g==='중상'?'m':'b'}">${f.g}</span></div>`).join('');
+}drawR();
+
+document.querySelectorAll('.nb').forEach(b=>{b.addEventListener('click',()=>{document.querySelectorAll('.nb').forEach(x=>x.classList.remove('on'));document.querySelectorAll('.sec').forEach(x=>x.classList.remove('on'));b.classList.add('on');document.getElementById(b.dataset.t).classList.add('on');window.scrollTo({top:0,behavior:'smooth'});});});
+function tog(h){h.closest('.ac').classList.toggle('op');}
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.querySelectorAll('.sbf').forEach(b=>{const w=b.style.width;b.style.width='0%';requestAnimationFrame(()=>{b.style.width=w;});});});},{threshold:.3});
+document.querySelectorAll('.sec').forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>

@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>학생부 학업역량 평가 · 107 서유 — 함의(含意)의 언어로</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;900&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#f5f3ed;--bg2:#eceade;--surface:#ffffff;--surface2:#f9f7f1;
+  --border:#dfdbc9;--border2:#d0ccba;
+  --text:#1a1a18;--text2:#4d4a3f;--text3:#84806e;
+  --ink:#2c2a22;
+  --accent:#3d6b4e;--accent2:#2b5038;
+  --accent-l:rgba(61,107,78,.07);--accent-l2:rgba(61,107,78,.14);
+  --blue:#3b5fc0;--blue-bg:rgba(59,95,192,.06);
+  --green:#2a7d4a;--green-bg:rgba(42,125,74,.06);
+  --yellow:#9e6c16;--yellow-bg:rgba(158,108,22,.06);
+  --red:#b83a2a;--red-bg:rgba(184,58,42,.05);
+  --orange:#b05a1a;--orange-bg:rgba(176,90,26,.06);
+  --teal:#1a7a72;--teal-bg:rgba(26,122,114,.06);
+  --purple:#6a40b0;--purple-bg:rgba(106,64,176,.05);
+  --warm:#8b7355;
+  --r:14px;--rs:8px;
+  --sh:0 1px 3px rgba(0,0,0,.05),0 4px 16px rgba(0,0,0,.03);
+  --sh2:0 2px 8px rgba(0,0,0,.05),0 8px 28px rgba(0,0,0,.05);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text);line-height:1.78;min-height:100vh}
+
+/* ── Hero ── */
+.hero{
+  background:linear-gradient(165deg,#1e2e24 0%,#2a4436 35%,#3a6050 100%);
+  padding:52px 24px 42px;text-align:center;position:relative;overflow:hidden;
+}
+.hero::before{content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20.5V18H0v-2h20v-2l2 3.5-2 3z' fill='%23ffffff' fill-opacity='.02'/%3E%3C/svg%3E");
+  pointer-events:none;
+}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:80px;
+  background:linear-gradient(to top,var(--bg),transparent);pointer-events:none;
+}
+.h-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);
+  border-radius:100px;padding:4px 14px;
+  font-size:11.5px;font-weight:600;color:rgba(255,255,255,.8);letter-spacing:.8px;
+  margin-bottom:16px;
+}
+.h-badge .dot{width:6px;height:6px;border-radius:50%;background:#7ee8a8;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(28px,4.8vw,44px);color:#fff;font-weight:400;letter-spacing:-.5px;margin-bottom:5px}
+.hero .sub{font-size:14px;color:rgba(255,255,255,.65);margin-bottom:22px}
+.hero .sub em{color:#7ee8a8;font-style:normal;font-weight:600}
+
+/* Philosophy Banner */
+.philo{
+  max-width:700px;margin:0 auto;position:relative;z-index:2;
+  background:rgba(255,255,255,.08);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.12);border-radius:var(--r);
+  padding:22px 26px;text-align:left;color:rgba(255,255,255,.88);font-size:13.5px;line-height:1.9;
+}
+.philo .q{
+  font-family:'DM Serif Display',serif;font-size:17px;color:#7ee8a8;
+  margin-bottom:8px;font-weight:400;font-style:italic;
+}
+.philo .hl{background:rgba(126,232,168,.15);padding:1px 5px;border-radius:3px;font-weight:600;color:#7ee8a8}
+
+/* ── Nav ── */
+.nw{position:sticky;top:0;z-index:100;background:rgba(245,243,237,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nv{max-width:940px;margin:0 auto;display:flex;overflow-x:auto;scrollbar-width:none;padding:0 10px}
+.nv::-webkit-scrollbar{display:none}
+.nb{flex-shrink:0;background:none;border:none;font-family:'Noto Sans KR',sans-serif;font-size:13px;font-weight:500;color:var(--text3);padding:12px 15px;cursor:pointer;position:relative;transition:color .2s;white-space:nowrap}
+.nb:hover{color:var(--text2)}.nb.on{color:var(--accent);font-weight:600}
+.nb.on::after{content:'';position:absolute;bottom:0;left:15px;right:15px;height:2.5px;background:var(--accent);border-radius:2px 2px 0 0}
+
+/* ── Layout ── */
+.ct{max-width:940px;margin:0 auto;padding:0 20px 80px}
+.sec{display:none;animation:fu .3s ease}.sec.on{display:block}
+@keyframes fu{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.sh{margin:32px 0 18px}
+.sh h2{font-size:19px;font-weight:700;display:flex;align-items:center;gap:8px}
+.sh p{font-size:12.5px;color:var(--text3);margin-top:1px}
+
+/* ── Card ── */
+.cd{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:20px 22px;margin-bottom:12px;box-shadow:var(--sh);transition:box-shadow .2s}
+.cd:hover{box-shadow:var(--sh2)}
+.ct-t{font-size:14.5px;font-weight:700;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.ct-d{font-size:13px;color:var(--text2);line-height:1.85}
+
+/* ── Badges ── */
+.bd{display:inline-flex;align-items:center;gap:3px;padding:3px 11px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:.3px}
+.bd.s{background:var(--green-bg);color:var(--green);border:1px solid rgba(42,125,74,.12)}
+.bd.m{background:var(--yellow-bg);color:var(--yellow);border:1px solid rgba(158,108,22,.1)}
+.bd.b{background:var(--blue-bg);color:var(--blue);border:1px solid rgba(59,95,192,.1)}
+.bd.r{background:var(--red-bg);color:var(--red);border:1px solid rgba(184,58,42,.1)}
+
+/* ── Evidence ── */
+.ev{background:var(--surface2);border-radius:var(--rs);padding:13px 16px;margin:8px 0;border-left:3px solid var(--accent);font-size:13px;color:var(--text2);line-height:1.85}
+.ev b{color:var(--text);font-weight:600}
+.ev .tg{display:inline-block;background:var(--accent-l);color:var(--accent);font-size:10.5px;font-weight:600;padding:1px 7px;border-radius:4px;margin-right:4px}
+
+/* ── New: Implication vs Declaration ── */
+.compare-box{
+  display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0;
+}
+@media(max-width:640px){.compare-box{grid-template-columns:1fr}}
+.cmp{border-radius:var(--rs);padding:14px 16px;font-size:12.5px;line-height:1.8}
+.cmp.decl{background:var(--red-bg);border:1px solid rgba(184,58,42,.1);color:var(--red)}
+.cmp.decl::before{content:'선언(宣言)';display:block;font-size:10px;font-weight:700;letter-spacing:1px;margin-bottom:4px;text-transform:uppercase;opacity:.7}
+.cmp.impl{background:var(--green-bg);border:1px solid rgba(42,125,74,.1);color:var(--green)}
+.cmp.impl::before{content:'함의(含意)';display:block;font-size:10px;font-weight:700;letter-spacing:1px;margin-bottom:4px;text-transform:uppercase;opacity:.7}
+
+/* ── Insight Box ── */
+.insight{
+  background:linear-gradient(135deg,rgba(61,107,78,.06),rgba(26,122,114,.05));
+  border:1px solid rgba(61,107,78,.15);border-radius:var(--r);
+  padding:20px 22px;margin:16px 0;
+}
+.insight h4{font-size:13.5px;font-weight:700;color:var(--accent);margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.insight p{font-size:13px;color:var(--text2);line-height:1.85}
+
+/* ── Radar ── */
+.ra{display:flex;gap:24px;align-items:center;flex-wrap:wrap;margin-bottom:24px}
+.rl{flex:1;min-width:220px}
+.li{display:flex;align-items:center;gap:9px;padding:8px 0;border-bottom:1px solid var(--border);cursor:pointer;transition:background .15s}
+.li:last-child{border-bottom:none}
+.li:hover{background:var(--surface2);margin:0 -6px;padding:8px 6px;border-radius:6px}
+.lc{font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:600;color:var(--accent);background:var(--accent-l);padding:2px 7px;border-radius:4px;min-width:28px;text-align:center}
+.ll{flex:1;font-size:12.5px;font-weight:500}
+
+/* ── Table ── */
+.tb{width:100%;border-collapse:collapse;font-size:12.5px;margin:12px 0}
+.tb th{text-align:left;padding:8px 9px;font-weight:600;color:var(--text3);font-size:10.5px;text-transform:uppercase;letter-spacing:.5px;border-bottom:2px solid var(--border)}
+.tb td{padding:8px 9px;border-bottom:1px solid var(--border);color:var(--text2)}
+.tb tr:hover td{background:var(--surface2)}
+.tb .mn{font-family:'IBM Plex Mono',monospace;font-weight:500;color:var(--text)}
+.gc{display:inline-block;padding:2px 9px;border-radius:100px;font-weight:600;font-size:11.5px}
+.gc.a{background:var(--green-bg);color:var(--green)}.gc.b{background:var(--blue-bg);color:var(--blue)}
+
+/* ── Score Bar ── */
+.sb{margin:5px 0}.sbl{display:flex;justify-content:space-between;font-size:11.5px;margin-bottom:2px}
+.sbl span:first-child{color:var(--text2);font-weight:500}.sbl span:last-child{color:var(--text3)}
+.sbb{height:7px;background:var(--bg2);border-radius:100px;overflow:hidden}
+.sbf{height:100%;border-radius:100px;transition:width 1s ease}
+
+/* ── Accordion ── */
+.ac{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);margin-bottom:10px;overflow:hidden;box-shadow:var(--sh)}
+.ah{display:flex;align-items:center;justify-content:space-between;padding:15px 20px;cursor:pointer;user-select:none}
+.ah h3{font-size:14px;font-weight:700;display:flex;align-items:center;gap:7px}
+.ah .aw{font-size:15px;color:var(--text3);transition:transform .3s}
+.ac.op .ah .aw{transform:rotate(180deg)}
+.ab{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.ac.op .ab{max-height:2200px}
+.ai{padding:0 20px 20px}
+.sl{font-size:10.5px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.8px;margin:12px 0 5px}
+
+/* Example Sentence */
+.ex{
+  background:var(--teal-bg);border:1px solid rgba(26,122,114,.1);
+  border-radius:var(--rs);padding:14px 16px;
+  font-size:12.5px;color:var(--teal);line-height:1.85;
+  font-style:italic;position:relative;
+}
+.ex::before{content:'함의형 세특 문장';position:absolute;top:-8px;left:11px;background:var(--surface);padding:0 5px;font-size:9.5px;font-weight:700;color:var(--teal);letter-spacing:.5px;font-style:normal;text-transform:uppercase}
+
+/* ── Packages ── */
+.pt{display:flex;gap:7px;margin-bottom:14px}
+.ptb{flex:1;padding:11px;background:var(--surface);border:1px solid var(--border);border-radius:var(--rs);font-family:'Noto Sans KR',sans-serif;font-size:13px;font-weight:600;color:var(--text3);cursor:pointer;text-align:center;transition:all .2s}
+.ptb.on{background:var(--accent-l);border-color:var(--accent);color:var(--accent)}
+.pp{display:none}.pp.on{display:block}
+.ch{display:inline-flex;align-items:center;gap:4px;background:var(--surface2);border:1px solid var(--border);border-radius:100px;padding:4px 12px;font-size:12px;font-weight:500;margin:3px}
+.ch .d{width:6px;height:6px;border-radius:50%}
+
+/* ── Flow ── */
+.fl{display:flex;gap:0;margin:18px 0;overflow-x:auto;padding-bottom:4px}
+.fs{flex:1;min-width:120px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:16px 12px;text-align:center;position:relative}
+.fs:not(:last-child)::after{content:'→';position:absolute;right:-12px;top:50%;transform:translateY(-50%);color:var(--text3);font-size:15px;z-index:2}
+.fs .fi{font-size:20px;margin-bottom:5px}
+.fs .fla{font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px}
+.fs .ft{font-size:12px;color:var(--text);font-weight:500}
+
+/* ── Key ── */
+.kb{background:linear-gradient(135deg,var(--accent-l),var(--teal-bg));border:1px solid rgba(61,107,78,.15);border-radius:var(--r);padding:24px;margin:24px 0;text-align:center}
+.kb h3{font-size:14.5px;font-weight:700;margin-bottom:8px;color:var(--accent)}
+.kb p{font-size:13px;color:var(--text2);line-height:1.85;max-width:580px;margin:0 auto}
+
+/* ── Spectrum ── */
+.spectrum{display:flex;align-items:stretch;gap:0;margin:16px 0;border-radius:var(--rs);overflow:hidden;border:1px solid var(--border)}
+.sp-l,.sp-r{flex:1;padding:16px 18px;font-size:12.5px;line-height:1.75}
+.sp-l{background:var(--red-bg);color:var(--red);border-right:1px solid var(--border)}
+.sp-r{background:var(--green-bg);color:var(--green)}
+.sp-l .spt,.sp-r .spt{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:5px;opacity:.7}
+
+@media(max-width:640px){
+  .ra{flex-direction:column;align-items:center}
+  .fl{flex-direction:column;gap:6px}
+  .fs:not(:last-child)::after{content:'↓';right:auto;bottom:-12px;top:auto;left:50%;transform:translateX(-50%)}
+  .pt{flex-direction:column}
+  .compare-box{grid-template-columns:1fr}
+  .spectrum{flex-direction:column}
+  .sp-l{border-right:none;border-bottom:1px solid var(--border)}
+}
+@media print{.nw{display:none}.sec{display:block!important;page-break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<!-- ═══ HERO ═══ -->
+<div class="hero">
+  <div class="h-badge"><span class="dot"></span>학업역량 5요소 · 함의(含意)의 언어</div>
+  <h1>107 서유 · 학생부 분석</h1>
+  <p class="sub">2022 개정교육과정 1학년 &nbsp;|&nbsp; <em>"말하지 말고 보여줘라"</em> 관점 적용</p>
+  <div class="philo">
+    <div class="q">"전공명이 한 번도 등장하지 않는데, 읽고 나면 전공이 떠오르는 기록"</div>
+    <p>
+      이 분석은 <span class="hl">함의(含意)</span>의 원칙을 적용합니다.
+      진로 키워드를 직접 선언하지 않고, <b>역량의 루틴</b>(변인 통제 · 정량 분석 · 한계 인식 · 대안 설계)만 반복하면
+      평가자가 스스로 "이 학생은 이 분야 사람이구나"를 <b>읽어내게</b> 됩니다.
+      <b>읽힌 결론</b>은 읽은 정보보다 훨씬 강력하게 설득합니다.
+    </p>
+  </div>
+</div>
+
+<!-- ═══ NAV ═══ -->
+<div class="nw"><nav class="nv" id="nav">
+  <button class="nb on" data-t="diag">5요소 진단</button>
+  <button class="nb" data-t="grades">교과 성적</button>
+  <button class="nb" data-t="lang">선언 vs 함의</button>
+  <button class="nb" data-t="risk">표현 리스크</button>
+  <button class="nb" data-t="pri">보완 우선순위</button>
+  <button class="nb" data-t="course">과목 선택</button>
+  <button class="nb" data-t="subj">과목별 보완</button>
+  <button class="nb" data-t="arc">3년 성장 아크</button>
+</nav></div>
+
+<div class="ct">
+
+<!-- ═══ TAB 1: 5요소 진단 ═══ -->
+<div class="sec on" id="diag">
+  <div class="sh"><h2>📊 학업역량 5요소 진단</h2><p>성취기준에 따른 성취수준 특성 + 참여도 + 자기주도적 변화·성장</p></div>
+
+  <div class="ra">
+    <svg width="280" height="280" viewBox="0 0 280 280" id="radar"></svg>
+    <div class="rl" id="rleg"></div>
+  </div>
+
+  <div class="cd" id="a1-card">
+    <div class="ct-t"><span class="lc">A1</span>교육과정 충실도<span class="bd s">강점</span></div>
+    <p class="ct-d" style="margin-top:5px">전 교과 상위권 성취, 공학/AI까지 확장한 교과 구성</p>
+    <div class="ev"><span class="tg">성적</span>국영수 <b>1등급</b>, 통합과학·통합사회 <b>2등급(A)</b>, AI기초 <b>1등급(93점)</b>. 고른 상위 성취가 교육과정 충실 이수를 증명함.</div>
+    <div class="ev"><span class="tg">교과 구성</span>공통과목 + <b>정보 + AI기초</b> 선택 — 실험적 역량과 데이터 도구 역량을 동시에 준비하는 설계가 읽힘.</div>
+  </div>
+
+  <div class="cd" id="a2-card">
+    <div class="ct-t"><span class="lc">A2</span>개념 이해 깊이 · 전이<span class="bd s">강점</span></div>
+    <p class="ct-d" style="margin-top:5px">교과 개념을 다른 맥락으로 옮겨 적용하는 사고가 반복됨</p>
+    <div class="ev"><span class="tg">수학</span>집합·명제 → <b>"유전자 발현 조건을 명제 형태로 표현"</b>, 통계 → 질병 전이 확률 예측 확장. 개념이 다른 영역에서 살아 움직임.</div>
+    <div class="ev"><span class="tg">AI기초</span>공공데이터 → 전처리 → 상관관계 → 회귀모델 → <b>MSE 해석 → 한계 인식 → 개선안</b>. 도구적 개념을 문제 해결에 적용.</div>
+    <div class="ev"><span class="tg">동아리</span>1차 실험 오염 판단 → <b>클린벤치 재실험(조건 통제 강화)</b>. 결과 불일치를 원인으로 분류하고 설계를 수정하는 전이.</div>
+  </div>
+
+  <div class="cd" id="a3-card">
+    <div class="ct-t"><span class="lc">A3</span>학습 과정 정교함<span class="bd m">중상</span></div>
+    <p class="ct-d" style="margin-top:5px">변인 통제·오류 수정이 동아리/AI에서는 좋으나, 교과 세특에서 보완 필요</p>
+    <div class="ev"><span class="tg">정보</span>재활 운동 추천 프로그램에서 <b>예외 입력 오류 발견 → 에러 핸들링 추가</b>. 테스트→수정의 구체적 관찰 가능 행동.</div>
+    <div class="ev" style="border-left-color:var(--orange)"><span class="tg" style="background:var(--orange-bg);color:var(--orange)">보완</span>국어·영어·사회 세특에서 <b>"적극적으로 참여", "성실히 수행"</b> 같은 총평 비중이 높음. '어떤 해석 오류를 어떻게 수정했는지'가 더 남으면 A3가 확실히 강해짐.</div>
+  </div>
+
+  <div class="cd" id="a4-card">
+    <div class="ct-t"><span class="lc">A4</span>학술적 문해력<span class="bd m">중상</span></div>
+    <p class="ct-d" style="margin-top:5px">자료→모델→해석→한계 루틴이 AI기초에서 확인됨, 과학 교과로 확장 필요</p>
+    <div class="ev"><span class="tg">AI기초</span>"자료→모델→해석→한계→개선" 구조가 명확. <b>MSE 값이 높다→실제값과 예측값 간극→다중회귀로 개선</b>까지 이어지는 추론 흐름.</div>
+    <div class="ev" style="border-left-color:var(--orange)"><span class="tg" style="background:var(--orange-bg);color:var(--orange)">보완</span>2·3학년 <b>과학 교과에서 표/그래프/단위/가정/한계</b> 문장을 습관화하면 A4가 과학 전 영역으로 확장됨.</div>
+  </div>
+
+  <div class="cd" id="a5-card">
+    <div class="ct-t"><span class="lc">A5</span>성장 궤적<span class="bd b">구축 중</span></div>
+    <p class="ct-d" style="margin-top:5px">1학년 데이터만으로는 궤적이 아직 형성 전 — 2학년부터 '같은 루틴의 심화'로 자연스럽게 만들어짐</p>
+    <div class="ev" style="border-left-color:var(--blue)"><span class="tg" style="background:var(--blue-bg);color:var(--blue)">전략</span>진로 키워드를 넣지 말고, <b>같은 사고 루틴(가설→설계→정량→한계→수정)</b>이 매 학기 반복되면 평가자가 성장선을 읽어냄. "선언 없는 궤적"이 가장 진정성 있음.</div>
+  </div>
+</div>
+
+<!-- ═══ TAB 2: 교과 성적 ═══ -->
+<div class="sec" id="grades">
+  <div class="sh"><h2>📝 교과 성적 현황</h2><p>1학년 2022 개정교육과정 공통과목</p></div>
+  <table class="tb">
+    <thead><tr><th>과목</th><th>원점수/평균</th><th>성취도</th><th>등급</th></tr></thead>
+    <tbody>
+      <tr><td>공통국어1</td><td class="mn">93/71.1</td><td><span class="gc a">A</span></td><td class="mn">1</td></tr>
+      <tr><td>공통수학1</td><td class="mn">94/58.0</td><td><span class="gc a">A</span></td><td class="mn">1</td></tr>
+      <tr><td>공통영어1</td><td class="mn">92/62.8</td><td><span class="gc a">A</span></td><td class="mn">1</td></tr>
+      <tr><td>한국사1</td><td class="mn">81/62.0</td><td><span class="gc a">A</span></td><td class="mn">2</td></tr>
+      <tr><td>통합사회1·2</td><td class="mn">88→90/68.6</td><td><span class="gc a">A</span></td><td class="mn">2</td></tr>
+      <tr><td>통합과학1</td><td class="mn">91/64.1</td><td><span class="gc a">A</span></td><td class="mn">2</td></tr>
+      <tr><td>정보</td><td class="mn">76/59.0</td><td><span class="gc b">B</span></td><td class="mn">2</td></tr>
+      <tr><td>인공지능 기초</td><td class="mn">93/64.8</td><td><span class="gc a">A</span></td><td class="mn">1</td></tr>
+    </tbody>
+  </table>
+  <div style="margin-top:16px">
+    <div class="sb"><div class="sbl"><span>공통수학1</span><span>94점 · 1등급</span></div><div class="sbb"><div class="sbf" style="width:94%;background:linear-gradient(90deg,var(--accent),var(--teal))"></div></div></div>
+    <div class="sb"><div class="sbl"><span>AI기초</span><span>93점 · 1등급</span></div><div class="sbb"><div class="sbf" style="width:93%;background:linear-gradient(90deg,var(--purple),var(--blue))"></div></div></div>
+    <div class="sb"><div class="sbl"><span>공통국어1</span><span>93점 · 1등급</span></div><div class="sbb"><div class="sbf" style="width:93%;background:linear-gradient(90deg,var(--accent),var(--green))"></div></div></div>
+    <div class="sb"><div class="sbl"><span>통합과학1</span><span>91점 · 2등급</span></div><div class="sbb"><div class="sbf" style="width:91%;background:linear-gradient(90deg,var(--green),var(--teal))"></div></div></div>
+    <div class="sb"><div class="sbl"><span>정보 → AI기초</span><span>76 → 93점 ↑</span></div><div class="sbb"><div class="sbf" style="width:84%;background:linear-gradient(90deg,var(--yellow),var(--green))"></div></div></div>
+  </div>
+  <div class="insight">
+    <h4>💡 정보(B) → AI기초(A/1등급)의 의미</h4>
+    <p>이 상승선은 평가자에게 <b>"도구적 역량이 성장하고 있다"</b>는 신호로 읽힙니다. 진로를 선언하지 않아도, 정보→AI→(향후)데이터과학으로 이어지는 과목 선택 자체가 방향성을 함의합니다.</p>
+  </div>
+</div>
+
+<!-- ═══ TAB 3: 선언 vs 함의 ═══ -->
+<div class="sec" id="lang">
+  <div class="sh"><h2>🔍 선언의 언어 vs 함의의 언어</h2><p>"Show, don't tell" — 학생부 기재의 핵심 원칙</p></div>
+
+  <div class="cd" style="border-color:rgba(61,107,78,.25)">
+    <div class="ct-t" style="color:var(--accent)">핵심 원리</div>
+    <p class="ct-d" style="margin-top:6px">
+      <b>"나는 생명과학에 관심 있다"</b>고 선언하는 순간, 평가자는 <em>"기획된 서류"</em>라는 의심의 렌즈를 끼게 됩니다.<br>
+      반면 <b>역량의 과정만 기록</b>하면, 평가자가 스스로 <em>"이 학생은 이 분야 사람이구나"</em>를 읽어냅니다.<br>
+      그 <b>'읽어냄'의 순간</b>이 바로 설득이 일어나는 지점입니다.
+    </p>
+  </div>
+
+  <div class="spectrum">
+    <div class="sp-l">
+      <div class="spt">선언(宣言) — 효과 약함</div>
+      ❌ "생명과학에 대한 깊은 관심을 바탕으로…"<br>
+      ❌ "장래 희망인 ○○ 분야에 꾸준한 관심…"<br>
+      ❌ "진로 분야와 연결하여 탐구를 확장…"<br>
+      ❌ "○○학자로 성장하겠다는 목표를 설정…"
+    </div>
+    <div class="sp-r">
+      <div class="spt">함의(含意) — 효과 강함</div>
+      ✓ "실험에서 조건 변화에 따른 결과 불일치를 원인별로 분류하고 설계를 수정함"<br>
+      ✓ "데이터 전처리 후 모델의 예측 오차를 해석하고 개선 방향을 제시함"<br>
+      ✓ "연구의 한계를 명시한 뒤 윤리적 쟁점까지 확장해 분석함"
+    </div>
+  </div>
+
+  <div class="sh" style="margin-top:28px"><h2>현재 기록에서 발견되는 '선언' vs '함의' 패턴</h2></div>
+
+  <!-- Pattern 1 -->
+  <div class="cd">
+    <div class="ct-t" style="color:var(--red)">📌 선언 패턴 발견 — 수학 세특</div>
+    <div class="compare-box">
+      <div class="cmp decl">"자신의 진로 희망 분야인 전자전기공학에서 활용되는 수학적 원리를 깊이 있게 탐구해 보고 싶다는 의지를 표현함"</div>
+      <div class="cmp impl">"실생활 현상을 함수로 모형화하는 과정에서 변수 설정 근거를 제시하고, 조건 변화에 따른 결과를 비교·해석하며 모델의 한계를 점검함"</div>
+    </div>
+    <div class="insight"><h4>왜 함의가 더 강한가?</h4><p>왼쪽은 "의지를 표현"이라는 <b>감정 보고</b>. 오른쪽은 <b>행동 자체</b>가 수학적 모델링 역량을 증명합니다. 평가자는 행동에서 역량을 읽어내고, 역량에서 전공 적합성을 스스로 추론합니다.</p></div>
+  </div>
+
+  <!-- Pattern 2 -->
+  <div class="cd">
+    <div class="ct-t" style="color:var(--red)">📌 선언 패턴 발견 — 진로활동</div>
+    <div class="compare-box">
+      <div class="cmp decl">"윤리적인 연구원으로 성장하겠다는 구체적 진로 목표를 설정함"</div>
+      <div class="cmp impl">"임상 데이터 개발 과정에서 3D 배양 모델과 시뮬레이션의 활용 가능성을 분석하고, 연구 과정에서 생명 존중과 진실성이 전제되어야 함을 논리적으로 정리함"</div>
+    </div>
+    <div class="insight"><h4>왜 함의가 더 강한가?</h4><p>"연구원이 되겠다"는 <b>선언은 누구나 할 수 있습니다</b>. 그러나 "연구 윤리를 스스로 논리적으로 정리하는 행동"은 이미 연구자적 태도를 <b>보여주고</b> 있습니다.</p></div>
+  </div>
+
+  <!-- Pattern 3 -->
+  <div class="cd">
+    <div class="ct-t" style="color:var(--red)">📌 선언 패턴 발견 — 영어 세특</div>
+    <div class="compare-box">
+      <div class="cmp decl">"의학 및 바이오 분야에 미칠 긍정적 영향을 영어로 발표함"</div>
+      <div class="cmp impl">"영어 도표 자료에서 시장 성장률의 추이와 근거를 분석하고, 자료의 한계를 지적한 뒤 대안적 해석을 영어로 구조화하여 발표함"</div>
+    </div>
+    <div class="insight"><h4>왜 함의가 더 강한가?</h4><p>"바이오 분야"라는 키워드를 빼도, <b>자료 분석→한계 지적→대안 해석</b>이라는 과정 자체가 해당 분야 연구자의 사고 방식을 보여줍니다.</p></div>
+  </div>
+
+  <!-- Positive Examples -->
+  <div class="sh" style="margin-top:28px"><h2>✓ 이미 잘 되어 있는 '함의형' 문장들</h2></div>
+  <div class="cd" style="border-color:rgba(42,125,74,.2)">
+    <div class="ct-t" style="color:var(--green)">훌륭한 함의 — AI기초</div>
+    <div class="ev" style="border-left-color:var(--green)">"공공데이터를 가져와 결측치와 이상치를 확인하고 전처리함. 속성별 상관관계를 그래프를 통해 확인… <b>MSE 값이 매우 높게 나타나는 결과를 보고 실제값과 예측값 사이에 상당한 격차가 존재한다고 해석함. 개선 방안으로 다중 선형 회귀를 사용하여 더 많은 속성을 추가해야겠다고 서술함.</b>"</div>
+    <p class="ct-d" style="margin-top:8px">진로 키워드 없이 <b>과정만으로</b> "이 학생은 데이터를 다룰 줄 안다"가 읽히는 이상적인 기록입니다.</p>
+  </div>
+  <div class="cd" style="border-color:rgba(42,125,74,.2)">
+    <div class="ct-t" style="color:var(--green)">훌륭한 함의 — 동아리</div>
+    <div class="ev" style="border-left-color:var(--green)">"1차 실험에서 나타난 <b>오염 가능성을 원인으로 판단해 클린 벤치 환경에서 재실험</b>을 진행하며 조건 통제를 강화함. 항균 효과가 <b>농도와 확산 조건에 영향을 받는다는 점</b>을 이해함."</div>
+    <p class="ct-d" style="margin-top:8px">"생명과학"이라는 단어 없이도, <b>오류 인식→조건 재설정→변인 해석</b>의 과정이 실험 과학자의 태도를 보여줍니다.</p>
+  </div>
+</div>
+
+<!-- ═══ TAB 4: 표현 리스크 ═══ -->
+<div class="sec" id="risk">
+  <div class="sh"><h2>⚠️ 기재요령 표현 리스크</h2><p>2025 기재요령 + '함의 원칙' 이중 점검</p></div>
+
+  <div class="cd" style="margin-bottom:18px">
+    <div class="ct-t" style="color:var(--yellow)">⚡ 이중 리스크 체크 기준</div>
+    <p class="ct-d" style="margin-top:5px">
+      ① <b>기재요령 리스크</b>: 주제·제목·보고서명 등 실적형 정보 노출<br>
+      ② <b>진정성 리스크</b>: 진로 키워드 직접 선언 → 기획된 서류 인상
+    </p>
+  </div>
+
+  <div class="cd">
+    <div class="ct-t" style="color:var(--red)">🔴 유형 1 — 탐구 주제/제목 노출</div>
+    <div class="compare-box">
+      <div class="cmp decl">"'알츠하이머병의 원인과 치료 기전 및 최신 연구 동향 탐구'에서는…"</div>
+      <div class="cmp impl">"신경 전달 과정에서 효소 억제제와 수용체 조절 약물이 작용하는 원리를 조사하고, 증상 완화에 머무르는 한계를 인식하며 비약물적 접근까지 확장 분석함"</div>
+    </div>
+  </div>
+
+  <div class="cd">
+    <div class="ct-t" style="color:var(--red)">🔴 유형 2 — 아카데미아 긴 제목 노출</div>
+    <div class="compare-box">
+      <div class="cmp decl">"주제탐구아카데미아(탄소중립 판단의 이중 구조–알고리즘과 인간의 직관 분석 및 천연물 실험 기반 근거 탐색)에서…"</div>
+      <div class="cmp impl">"소비자 심리와 환경 의식 간 태도-행동 간극을 통계 자료로 분석하고, 선행연구를 체계적으로 정리해 향후 탐구의 이론적 토대를 구축함"</div>
+    </div>
+  </div>
+
+  <div class="cd">
+    <div class="ct-t" style="color:var(--orange)">🟠 유형 3 — 진로 선언형 문장</div>
+    <div class="compare-box">
+      <div class="cmp decl">"생명 과학적 관점에서 사고를 확장하고자…" / "공학자로서의 역량을 키우고자…"</div>
+      <div class="cmp impl">"분자 수준의 기술과 그것이 작동하는 원리를 탐구하는 과정에서, 기술 간 공통 원리를 비교·분류하고 각각의 적용 조건을 분석함"</div>
+    </div>
+    <div class="insight"><h4>핵심</h4><p>"~에 관심을 가지고", "~으로 성장하겠다" 같은 문장은 <b>평가 근거가 아닌 감정 보고</b>입니다. 빼도 아무것도 잃지 않고, 빼면 과정이 더 선명해집니다.</p></div>
+  </div>
+</div>
+
+<!-- ═══ TAB 5: 보완 우선순위 ═══ -->
+<div class="sec" id="pri">
+  <div class="sh"><h2>🎯 보완 우선순위</h2><p>"무엇을 더 했는가"가 아니라, 기존 역량을 함의의 언어로 재구성</p></div>
+
+  <div class="pri-item"><div class="pri-num">1</div><div class="pri-content">
+    <h4>진로 선언 제거 — "키워드 없이 읽히게"</h4>
+    <p>현재 기록에서 "생명과학", "공학자", "연구원" 등 직접 선언을 모두 빼고, <b>행동·과정·방법</b>만 남겨도 평가자에게 동일한 전공이 읽히는지 점검. 읽히면 성공, 안 읽히면 역량 기록이 부족한 것.</p>
+  </div></div>
+  <div class="pri-item"><div class="pri-num">2</div><div class="pri-content">
+    <h4>A3 강화 — 모든 교과에서 '오류→수정' 1회 이상</h4>
+    <p>동아리·정보에서 확인된 <b>"오차 인식→원인 분류→설계 수정"</b> 루틴을 국어·영어·사회에서도 기록. 예: "초기 해석에 반례를 발견하고 관점을 수정함".</p>
+  </div></div>
+  <div class="pri-item"><div class="pri-num">3</div><div class="pri-content">
+    <h4>A4 정량 루틴 — 과학 교과에서 데이터 습관화</h4>
+    <p>AI기초에서 보여준 "자료→모델→해석→한계" 루틴을 <b>2학년 과학 교과</b>에서 반복. 표/그래프/단위/가정/한계 문장이 습관적으로 등장하면, 정량적 사고가 이 학생의 특성으로 읽힘.</p>
+  </div></div>
+  <div class="pri-item"><div class="pri-num">4</div><div class="pri-content">
+    <h4>기재요령 준거 — 주제·제목 노출 제거</h4>
+    <p>"무엇(주제)" 대신 "어떻게(방법/과정)"만 남기기. 특히 탐구형 활동에서 제목이 전면에 오는 패턴을 과정 중심 문장으로 전환.</p>
+  </div></div>
+  <div class="pri-item"><div class="pri-num">5</div><div class="pri-content">
+    <h4>A5 "선언 없는 궤적" — 같은 루틴의 자연스러운 심화</h4>
+    <p>진로를 선언하지 않고, <b>같은 사고 습관(가설→설계→정량→한계→수정)</b>이 매 학기 깊어지면 평가자가 성장 궤적을 스스로 읽어냄. 이것이 가장 극적인 서사.</p>
+  </div></div>
+</div>
+
+<!-- ═══ TAB 6: 과목 선택 ═══ -->
+<div class="sec" id="course">
+  <div class="sh"><h2>📚 2·3학년 과목 선택</h2><p>2022 개정교육과정 · 과목 선택 자체가 함의를 만든다</p></div>
+
+  <div class="insight"><h4>💡 과목 선택의 함의</h4><p>과목 조합 자체가 "이 학생이 어떤 역량을 쌓고 있는가"를 보여줍니다. 진로를 말하지 않아도, <b>생명과학Ⅱ + 화학Ⅱ + 확통 + 과제연구</b>라는 선택이 방향을 함의합니다.</p></div>
+
+  <div class="pt">
+    <button class="ptb on" data-p="a">A 패키지 (최우선)</button>
+    <button class="ptb" data-p="b">B 패키지 (대안)</button>
+  </div>
+
+  <div class="pp on" id="pkg-a">
+    <div class="cd"><div class="ct-t" style="color:var(--green)">✦ 최우선 조합</div>
+    <p class="ct-d" style="margin:8px 0">"실험 설계 + 정량 분석 + 분자 수준 이해"의 삼각 역량을 가장 강하게 보여주는 조합</p>
+    <div>
+      <span class="ch"><span class="d" style="background:var(--green)"></span>생명과학Ⅰ·Ⅱ</span>
+      <span class="ch"><span class="d" style="background:var(--green)"></span>화학Ⅰ·Ⅱ</span>
+      <span class="ch"><span class="d" style="background:var(--blue)"></span>확률과 통계</span>
+      <span class="ch"><span class="d" style="background:var(--blue)"></span>미적분</span>
+      <span class="ch"><span class="d" style="background:var(--purple)"></span>과학과제 연구</span>
+      <span class="ch"><span class="d" style="background:var(--teal)"></span>생태와 환경 / 융합과학 탐구</span>
+    </div></div>
+  </div>
+  <div class="pp" id="pkg-b">
+    <div class="cd"><div class="ct-t" style="color:var(--yellow)">✧ 대안 조합</div>
+    <p class="ct-d" style="margin:8px 0">Ⅱ과목 미개설 시</p>
+    <div>
+      <span class="ch"><span class="d" style="background:var(--green)"></span>생명과학Ⅰ 심화</span>
+      <span class="ch"><span class="d" style="background:var(--green)"></span>화학Ⅰ 정량 강화</span>
+      <span class="ch"><span class="d" style="background:var(--blue)"></span>확률과 통계</span>
+      <span class="ch"><span class="d" style="background:var(--purple)"></span>데이터 과학 / 정보과학</span>
+      <span class="ch"><span class="d" style="background:var(--orange)"></span>생활과 윤리</span>
+    </div></div>
+    <div class="ev" style="border-left-color:var(--yellow)"><b>보완 전략</b>: Ⅰ에서 실험 설계 정교함(변인 통제·반복 측정·한계 분석)을 극대화. 데이터과학을 추가하면 "정보→AI기초→데이터과학" 상승선이 자연스럽게 읽힘.</div>
+  </div>
+</div>
+
+<!-- ═══ TAB 7: 과목별 보완 ═══ -->
+<div class="sec" id="subj">
+  <div class="sh"><h2>🔧 과목별 보완 — 함의형 세특 문장</h2><p>진로 키워드 없이, 역량의 루틴만으로 전공이 읽히는 문장 설계</p></div>
+
+  <div class="ac op">
+    <div class="ah" onclick="tog(this)"><h3>🧬 생명과학 — "관찰→가설→변인→정량→한계"</h3><span class="aw">▾</span></div>
+    <div class="ab"><div class="ai">
+      <div class="sl">수업 행동</div>
+      <p class="ct-d">가설 설정 → 변인 구분(독립/종속/통제) → 정량 기록 → 예측과 관측 비교 → 오차 원인 분류 → 후속 조건 설계</p>
+      <div class="sl">함의형 세특 문장</div>
+      <div class="ex">"실험에서 독립변인과 종속변인을 구분하여 측정 계획을 수립하고, 예상과 다른 결과 구간의 원인을 조건 변화로 분석함. 반복 측정 데이터의 편차를 확인하며 실험 설계의 한계를 명시하고 보완 조건을 제안함."</div>
+      <div class="insight"><h4>평가자가 읽어내는 것</h4><p>"생명과학"이라는 단어가 없어도, <b>변인 통제 + 반복 측정 + 한계 인식</b>의 조합은 실험과학자의 사고 습관을 보여줍니다.</p></div>
+    </div></div>
+  </div>
+
+  <div class="ac">
+    <div class="ah" onclick="tog(this)"><h3>⚗️ 화학 — "반응→정량→오차→보정"</h3><span class="aw">▾</span></div>
+    <div class="ab"><div class="ai">
+      <div class="sl">수업 행동</div>
+      <p class="ct-d">반응식 해석 → 양적 관계 계산 → 실험값과 이론값 비교 → 오차 원인 분류 → 보정 방법 제안</p>
+      <div class="sl">함의형 세특 문장</div>
+      <div class="ex">"이론적 당량점과 실험 결과의 차이를 온도 변화, 농도 정밀도 등 오차 원인으로 분류하고, 보정 방법을 제안하며 정량 분석의 신뢰도를 점검함."</div>
+    </div></div>
+  </div>
+
+  <div class="ac">
+    <div class="ah" onclick="tog(this)"><h3>📐 수학 — "모형화→가정→검증→한계"</h3><span class="aw">▾</span></div>
+    <div class="ab"><div class="ai">
+      <div class="sl">수업 행동</div>
+      <p class="ct-d">현상을 수학적으로 모형화 → 가정 명시 → 결과 해석 → 모형의 한계 점검 → 대안 모형 비교</p>
+      <div class="sl">함의형 세특 문장</div>
+      <div class="ex">"확률분포 개념을 활용해 표본 데이터에서 모집단 특성을 추론하고, 표본 크기와 가정의 타당성이 결론의 신뢰도에 미치는 영향을 분석함. 추론의 한계를 명시하며 통계적 판단의 조건을 점검함."</div>
+      <div class="insight"><h4>평가자가 읽어내는 것</h4><p>"통계적 추론 + 한계 인식"은 <b>데이터 기반 연구자의 핵심 역량</b>입니다. 진로를 말하지 않아도, 이 역량의 반복이 방향을 함의합니다.</p></div>
+    </div></div>
+  </div>
+
+  <div class="ac">
+    <div class="ah" onclick="tog(this)"><h3>🌐 영어 — "자료 분석→논증 구조화→피드백 반영"</h3><span class="aw">▾</span></div>
+    <div class="ab"><div class="ai">
+      <div class="sl">함의형 세특 문장</div>
+      <div class="ex">"영어 자료에서 주장-근거-한계 구조를 파악하고, 자료의 신뢰성을 평가한 뒤 대안적 해석을 구조화하여 발표함. 피드백을 반영해 논증의 정밀도를 높이는 과정에서 학술적 의사소통 역량을 강화함."</div>
+    </div></div>
+  </div>
+
+  <div class="ac">
+    <div class="ah" onclick="tog(this)"><h3>🔬 과학과제 연구 — "실적형 제거 + 순수 과정"</h3><span class="aw">▾</span></div>
+    <div class="ab"><div class="ai">
+      <div class="sl">함의형 세특 문장 (제목/주제 없이)</div>
+      <div class="ex">"연구 질문을 설정하고 독립·종속·통제 변인을 구분하여 실험을 설계함. 예비 실험에서 측정값 변동 원인을 분석해 실험 조건을 수정하고, 반복 측정 데이터를 통계적으로 처리하여 결과의 신뢰도와 한계를 점검함."</div>
+      <div class="insight"><h4>핵심</h4><p>이 문장에 전공명이 없습니다. 그런데 읽으면 <b>"이 학생은 실험 과학을 하는 사람이구나"</b>가 떠오릅니다. 이것이 함의의 힘입니다.</p></div>
+    </div></div>
+  </div>
+</div>
+
+<!-- ═══ TAB 8: 3년 성장 아크 ═══ -->
+<div class="sec" id="arc">
+  <div class="sh"><h2>🚀 3년 성장 아크 — "선언 없는 궤적"</h2><p>진로를 말하지 않고, 역량의 심화만으로 방향이 읽히는 서사</p></div>
+
+  <div class="kb">
+    <h3>진로 선언 이전 = 다양한 역량의 축적<br>진로 선언 이후 = 같은 역량이 자연스럽게 수렴</h3>
+    <p>이 '수렴의 순간'을 평가자가 <b>스스로 발견</b>하게 만드는 것이 가장 극적인 서사입니다.</p>
+  </div>
+
+  <div class="fl">
+    <div class="fs"><div class="fi">🌱</div><div class="fla">1학년</div><div class="ft">다양한 역량 축적<br><small style="color:var(--text3)">가설·변인·정량·한계</small></div></div>
+    <div class="fs"><div class="fi">🔬</div><div class="fla">2학년</div><div class="ft">같은 루틴의 심화<br><small style="color:var(--text3)">실험 정교화·통계 도입</small></div></div>
+    <div class="fs"><div class="fi">📊</div><div class="fla">3학년</div><div class="ft">방법론의 독립<br><small style="color:var(--text3)">독립 설계·학술 문해력</small></div></div>
+    <div class="fs"><div class="fi">✨</div><div class="fla">결과</div><div class="ft">평가자의 발견<br><small style="color:var(--text3)">"이 학생은 이 분야 사람"</small></div></div>
+  </div>
+
+  <div class="cd" style="margin-top:18px">
+    <div class="ct-t" style="color:var(--accent)">📅 학년별 루틴 심화 로드맵</div>
+    <table class="tb" style="margin-top:8px">
+      <thead><tr><th>학년</th><th>핵심</th><th>함의가 만들어지는 방식</th></tr></thead>
+      <tbody>
+        <tr><td><b>1학년</b></td><td>기초 역량 다방면 축적</td><td>여러 교과에서 "가설→변인→정량→한계" 루틴이 처음 등장. 아직 방향 미확정 = 자연스러움</td></tr>
+        <tr><td><b>2학년</b></td><td>루틴의 심화 + 반복</td><td>같은 루틴이 생명과학·화학·수학에서 동시에 깊어짐. 진로를 말하지 않아도 <b>패턴이 수렴</b>.</td></tr>
+        <tr><td><b>3학년</b></td><td>방법론 독립 + 학술성</td><td>과제연구에서 <b>스스로 설계→검증→한계→윤리</b>를 완결. 평가자가 "이 학생은 연구자"를 확신.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="cd" style="margin-top:12px">
+    <div class="ct-t" style="color:var(--teal)">🔗 교과 간 역량 루틴 반복 지도</div>
+    <table class="tb" style="margin-top:8px">
+      <thead><tr><th>역량 루틴</th><th>생명과학</th><th>화학</th><th>수학</th><th>영어/국어</th></tr></thead>
+      <tbody>
+        <tr><td><b>가설 설정</b></td><td>생물 현상 관찰</td><td>반응 예측</td><td>모형 가정</td><td>주장 구조화</td></tr>
+        <tr><td><b>변인 통제</b></td><td>독립/종속/통제</td><td>조건 고정</td><td>변수 설정</td><td>논증 전제 점검</td></tr>
+        <tr><td><b>정량 분석</b></td><td>반복 측정</td><td>몰/농도 계산</td><td>통계 처리</td><td>자료 근거 해석</td></tr>
+        <tr><td><b>한계 인식</b></td><td>실험 제약</td><td>오차 분류</td><td>모형 한계</td><td>반례·대안 관점</td></tr>
+        <tr><td><b>수정·확장</b></td><td>후속 실험 설계</td><td>보정 방법</td><td>대안 모형</td><td>피드백→수정</td></tr>
+      </tbody>
+    </table>
+    <div class="insight" style="margin-top:12px"><h4>💡 이 표의 의미</h4><p>같은 5단계 루틴이 <b>모든 교과에서 반복</b>될 때, 평가자는 "이 학생에게는 일관된 사고 습관이 있다"를 읽어냅니다. 진로 키워드 없이도, 이 <b>습관의 패턴</b>이 전공 적합성을 함의합니다. 이것이 학종의 본질입니다.</p></div>
+  </div>
+
+  <div class="cd" style="margin-top:12px;border-color:rgba(61,107,78,.25)">
+    <div class="ct-t">💎 최종 원칙</div>
+    <p class="ct-d" style="margin-top:6px">
+      <b>대입은 목표가 아닌 형성된 역량의 확인 지점</b>입니다.<br>
+      결과물(무엇을)보다 <b>과정(어떻게)</b>에 주목하세요.<br>
+      방법 · 태도 · 가치 · 신념 — 대입 이후에도 전이 가능한 역량 중심.<br>
+      <b>정규교육과정 이수 충실</b>이 학종의 본질이며,<br>
+      <b>전공명이 한 번도 등장하지 않는데 읽고 나면 전공이 떠오르는 기록</b>이 최고의 학생부입니다.
+    </p>
+  </div>
+</div>
+
+</div><!-- /ct -->
+
+<script>
+const F=[
+  {c:'A1',l:'교육과정 충실도',s:92,cl:'#2a7d4a',g:'강점'},
+  {c:'A2',l:'개념 이해 깊이·전이',s:85,cl:'#2a7d4a',g:'강점'},
+  {c:'A3',l:'학습 과정 정교함',s:68,cl:'#9e6c16',g:'중상'},
+  {c:'A4',l:'학술적 문해력',s:65,cl:'#9e6c16',g:'중상'},
+  {c:'A5',l:'성장 궤적',s:40,cl:'#3b5fc0',g:'구축 중'},
+];
+function drawR(){
+  const svg=document.getElementById('radar'),cx=140,cy=140,R=105,n=F.length;let h='';
+  for(let l=1;l<=4;l++){const r=R*l/4;let p=[];for(let i=0;i<n;i++){const a=Math.PI*2*i/n-Math.PI/2;p.push(`${cx+r*Math.cos(a)},${cy+r*Math.sin(a)}`);}h+=`<polygon points="${p.join(' ')}" fill="none" stroke="#d0ccba" stroke-width="1"/>`;}
+  for(let i=0;i<n;i++){const a=Math.PI*2*i/n-Math.PI/2;h+=`<line x1="${cx}" y1="${cy}" x2="${cx+R*Math.cos(a)}" y2="${cy+R*Math.sin(a)}" stroke="#d0ccba" stroke-width="1"/>`;}
+  let dp=[];for(let i=0;i<n;i++){const a=Math.PI*2*i/n-Math.PI/2,r=R*F[i].s/100;dp.push(`${cx+r*Math.cos(a)},${cy+r*Math.sin(a)}`);}
+  h+=`<polygon points="${dp.join(' ')}" fill="rgba(61,107,78,.1)" stroke="#3d6b4e" stroke-width="2.5"/>`;
+  for(let i=0;i<n;i++){const a=Math.PI*2*i/n-Math.PI/2,r=R*F[i].s/100,x=cx+r*Math.cos(a),y=cy+r*Math.sin(a);h+=`<circle cx="${x}" cy="${y}" r="4.5" fill="${F[i].cl}" stroke="#fff" stroke-width="2"/>`;const lx=cx+(R+18)*Math.cos(a),ly=cy+(R+18)*Math.sin(a),anc=Math.abs(Math.cos(a))<.3?'middle':(Math.cos(a)>0?'start':'end');h+=`<text x="${lx}" y="${ly+4}" fill="#84806e" font-size="11" font-weight="600" text-anchor="${anc}" font-family="'Noto Sans KR'">${F[i].c}</text>`;}
+  svg.innerHTML=h;
+  document.getElementById('rleg').innerHTML=F.map(f=>`<div class="li" onclick="document.getElementById('${f.c.toLowerCase()}-card')?.scrollIntoView({behavior:'smooth',block:'center'})"><span class="lc">${f.c}</span><span class="ll">${f.l}</span><span class="bd ${f.g==='강점'?'s':f.g==='중상'?'m':'b'}">${f.g}</span></div>`).join('');
+}drawR();
+
+document.querySelectorAll('.nb').forEach(b=>{b.addEventListener('click',()=>{document.querySelectorAll('.nb').forEach(x=>x.classList.remove('on'));document.querySelectorAll('.sec').forEach(x=>x.classList.remove('on'));b.classList.add('on');document.getElementById(b.dataset.t).classList.add('on');window.scrollTo({top:0,behavior:'smooth'});});});
+document.querySelectorAll('.ptb').forEach(b=>{b.addEventListener('click',()=>{document.querySelectorAll('.ptb').forEach(x=>x.classList.remove('on'));document.querySelectorAll('.pp').forEach(x=>x.classList.remove('on'));b.classList.add('on');document.getElementById('pkg-'+b.dataset.p).classList.add('on');});});
+function tog(h){h.closest('.ac').classList.toggle('op');}
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.querySelectorAll('.sbf').forEach(b=>{const w=b.style.width;b.style.width='0%';requestAnimationFrame(()=>{b.style.width=w;});});});},{threshold:.3});
+document.querySelectorAll('.sec').forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>

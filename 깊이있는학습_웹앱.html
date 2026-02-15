@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>깊이 있는 학습 | 2022 개정 교육과정</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #667eea;
+            --primary-dark: #764ba2;
+            --accent: #fbbf24;
+            --success: #10b981;
+            --danger: #ef4444;
+            --bg-dark: #1a1a2e;
+            --bg-mid: #16213e;
+            --bg-light: #0f3460;
+            --text-primary: #fff;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-mid) 50%, var(--bg-light) 100%);
+            min-height: 100vh;
+            color: var(--text-primary);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        /* 헤더 */
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .logo-icon {
+            font-size: 4rem;
+            margin-bottom: 16px;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+        }
+        
+        .subtitle {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(102, 126, 234, 0.2);
+            border: 1px solid var(--primary);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 16px;
+            color: var(--primary);
+        }
+        
+        /* 네비게이션 */
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
+            padding: 0 10px;
+        }
+        
+        .nav-tab {
+            padding: 12px 22px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.92rem;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-tab::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .nav-tab:hover::before {
+            left: 100%;
+        }
+        
+        .nav-tab:hover {
+            background: rgba(102, 126, 234, 0.25);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        .nav-tab.active {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-color: transparent;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .nav-tab .tab-icon {
+            margin-right: 6px;
+        }
+        
+        /* 콘텐츠 섹션 */
+        .content-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* 카드 */
+        .card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 32px;
+            margin-bottom: 24px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            border-color: rgba(102, 126, 234, 0.3);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        .card h2 {
+            font-size: 1.6rem;
+            margin-bottom: 24px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .card h2 .emoji {
+            font-size: 1.8rem;
+        }
+        
+        .card h3 {
+            font-size: 1.2rem;
+            margin: 24px 0 14px;
+            color: #a78bfa;
+        }
+        
+        .card p {
+            line-height: 1.85;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+        
+        /* 하이라이트 박스 */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(102,126,234,0.15) 0%, rgba(118,75,162,0.15) 100%);
+            border-left: 4px solid var(--primary);
+            padding: 20px 24px;
+            border-radius: 0 14px 14px 0;
+            margin: 20px 0;
+        }
+        
+        .highlight-box p {
+            color: #e2e8f0;
+            margin: 0;
+            font-size: 1.1rem;
+        }
+        
+        /* 인사이트 박스 */
+        .insight-box {
+            background: rgba(251,191,36,0.1);
+            border: 1px solid rgba(251,191,36,0.3);
+            border-radius: 16px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+        
+        .insight-box h4 {
+            color: var(--accent);
+            margin-bottom: 14px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .insight-box ul {
+            margin-left: 20px;
+            margin-top: 12px;
+        }
+        
+        .insight-box li {
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            line-height: 1.7;
+        }
+        
+        /* 3가지 핵심 그리드 */
+        .three-pillars {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin: 30px 0;
+        }
+        
+        .pillar {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 28px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pillar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        
+        .pillar:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .pillar:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(102,126,234,0.2);
+        }
+        
+        .pillar-icon {
+            font-size: 3.5rem;
+            margin-bottom: 18px;
+        }
+        
+        .pillar h4 {
+            color: var(--primary);
+            margin-bottom: 14px;
+            font-size: 1.15rem;
+        }
+        
+        .pillar p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+        
+        /* 플로우 다이어그램 */
+        .flow-diagram {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin: 30px 0;
+            padding: 20px;
+        }
+        
+        .flow-item {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            padding: 14px 22px;
+            border-radius: 12px;
+            font-size: 0.92rem;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(102,126,234,0.3);
+        }
+        
+        .flow-arrow {
+            color: var(--primary);
+            font-size: 1.6rem;
+            font-weight: bold;
+        }
+        
+        /* 예시 카드 */
+        .example-card {
+            background: linear-gradient(135deg, rgba(16,185,129,0.1) 0%, rgba(6,182,212,0.1) 100%);
+            border: 1px solid rgba(16,185,129,0.3);
+            border-radius: 16px;
+            padding: 26px;
+            margin: 24px 0;
+        }
+        
+        .example-card h4 {
+            color: var(--success);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+        
+        /* 프롬프트 박스 */
+        .prompt-box {
+            background: rgba(0,0,0,0.35);
+            border-radius: 14px;
+            padding: 22px;
+            margin: 18px 0;
+            font-size: 0.93rem;
+            line-height: 1.75;
+            color: var(--text-muted);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        /* 세특 예시 */
+        .setech-example {
+            background: rgba(255,255,255,0.05);
+            border-radius: 14px;
+            padding: 22px;
+            margin-top: 18px;
+        }
+        
+        .setech-label {
+            display: inline-block;
+            padding: 5px 14px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 20px;
+            font-size: 0.82rem;
+            margin-bottom: 14px;
+            font-weight: 500;
+        }
+        
+        /* 프롬프트 가이드 */
+        .prompt-guide-card {
+            background: linear-gradient(135deg, rgba(99,179,237,0.1) 0%, rgba(49,130,206,0.1) 100%);
+            border: 2px solid rgba(99,179,237,0.4);
+            border-radius: 18px;
+            padding: 26px;
+            margin: 26px 0;
+        }
+        
+        .prompt-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+        
+        .prompt-badge {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            padding: 7px 18px;
+            border-radius: 22px;
+            font-size: 0.88rem;
+            font-weight: 600;
+        }
+        
+        .copy-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 11px 22px;
+            background: rgba(16,185,129,0.2);
+            border: 1px solid var(--success);
+            border-radius: 25px;
+            color: var(--success);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+        
+        .copy-btn:hover {
+            background: rgba(16,185,129,0.35);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(16,185,129,0.3);
+        }
+        
+        .copy-btn.copied {
+            background: var(--success);
+            color: #fff;
+        }
+        
+        .prompt-content {
+            background: rgba(0,0,0,0.4);
+            border-radius: 14px;
+            padding: 22px;
+            font-size: 0.95rem;
+            line-height: 1.9;
+            color: #e2e8f0;
+            white-space: pre-wrap;
+            word-break: keep-all;
+        }
+        
+        /* 교사 팁 */
+        .teacher-tip {
+            display: flex;
+            gap: 18px;
+            background: linear-gradient(135deg, rgba(251,191,36,0.15) 0%, rgba(245,158,11,0.1) 100%);
+            border: 1px solid rgba(251,191,36,0.4);
+            border-radius: 18px;
+            padding: 26px;
+            margin: 26px 0;
+            align-items: flex-start;
+        }
+        
+        .tip-icon {
+            font-size: 2.8rem;
+            flex-shrink: 0;
+        }
+        
+        .tip-content h4 {
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-size: 1.12rem;
+        }
+        
+        .tip-content p {
+            color: #e2e8f0;
+            margin: 0;
+            line-height: 1.75;
+        }
+        
+        /* 퀴즈 */
+        .quiz-container {
+            background: rgba(255,255,255,0.08);
+            border-radius: 18px;
+            padding: 30px;
+            margin: 24px 0;
+        }
+        
+        .quiz-step {
+            background: rgba(255,255,255,0.05);
+            border-radius: 18px;
+            padding: 28px;
+            margin: 22px 0;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .quiz-step.hidden {
+            display: none;
+        }
+        
+        .quiz-step h3 {
+            color: var(--accent);
+            margin-bottom: 18px;
+            font-size: 1.15rem;
+        }
+        
+        .quiz-question {
+            font-size: 1.2rem;
+            margin-bottom: 22px;
+            color: #f1f5f9;
+            line-height: 1.6;
+        }
+        
+        /* 도형 그림 */
+        .figure-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 35px;
+            justify-content: center;
+            align-items: flex-start;
+            margin: 24px 0;
+        }
+        
+        .figure-box {
+            text-align: center;
+        }
+        
+        .figure-box p {
+            margin-top: 12px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        
+        /* 계산 박스 */
+        .calculation-box {
+            background: rgba(0,0,0,0.35);
+            border-radius: 14px;
+            padding: 22px;
+            margin: 22px 0;
+        }
+        
+        .calculation-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin: 12px 0;
+            flex-wrap: wrap;
+        }
+        
+        .calc-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .calc-label {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+        }
+        
+        .calc-value {
+            color: #fff;
+            font-weight: 600;
+        }
+        
+        .result-16 {
+            font-size: 2.2rem;
+            color: var(--danger);
+            font-weight: 700;
+            text-align: center;
+            margin: 22px 0;
+        }
+        
+        .question-mark {
+            color: var(--danger);
+            font-size: 1.6rem;
+        }
+        
+        /* 버튼 */
+        .btn {
+            padding: 13px 32px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border: none;
+            border-radius: 30px;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px 6px;
+            font-family: inherit;
+            font-weight: 500;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(102,126,234,0.45);
+        }
+        
+        .btn.secondary {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .btn.secondary:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        /* 경고/성공 박스 */
+        .warning-box {
+            background: rgba(239,68,68,0.1);
+            border: 1px solid rgba(239,68,68,0.3);
+            border-radius: 18px;
+            padding: 28px;
+            margin: 22px 0;
+            text-align: center;
+        }
+        
+        .warning-box h4 {
+            color: var(--danger);
+            font-size: 2rem;
+            margin-bottom: 14px;
+        }
+        
+        .success-box {
+            background: rgba(16,185,129,0.1);
+            border: 1px solid rgba(16,185,129,0.3);
+            border-radius: 18px;
+            padding: 28px;
+            margin: 22px 0;
+        }
+        
+        .success-box h4 {
+            color: var(--success);
+            margin-bottom: 14px;
+            font-size: 1.15rem;
+        }
+        
+        /* 키 메시지 */
+        .key-message {
+            background: linear-gradient(135deg, rgba(59,130,246,0.2) 0%, rgba(147,51,234,0.2) 100%);
+            border: 2px solid #3b82f6;
+            border-radius: 18px;
+            padding: 35px;
+            margin: 35px 0;
+            text-align: center;
+        }
+        
+        .key-message h3 {
+            color: #3b82f6;
+            font-size: 1.6rem;
+            margin-bottom: 18px;
+        }
+        
+        .key-message p {
+            font-size: 1.15rem;
+            color: var(--accent);
+        }
+        
+        /* 명언 카드 */
+        .quote-card {
+            background: linear-gradient(135deg, rgba(168,85,247,0.1) 0%, rgba(236,72,153,0.1) 100%);
+            border-left: 4px solid #a855f7;
+            border-radius: 0 18px 18px 0;
+            padding: 26px;
+            margin: 22px 0;
+        }
+        
+        .quote-card blockquote {
+            font-size: 1.12rem;
+            font-style: italic;
+            color: #e2e8f0;
+            line-height: 1.85;
+        }
+        
+        .quote-card .author {
+            margin-top: 14px;
+            color: #a855f7;
+            font-size: 0.95rem;
+            font-style: normal;
+        }
+        
+        /* 푸터 */
+        footer {
+            text-align: center;
+            padding: 45px 20px;
+            color: #64748b;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            margin-top: 40px;
+        }
+        
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        /* 진행 표시기 */
+        .progress-indicator {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        
+        .progress-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .progress-dot.active {
+            background: var(--primary);
+            box-shadow: 0 0 10px var(--primary);
+        }
+        
+        .progress-dot.completed {
+            background: var(--success);
+        }
+        
+        /* 반응형 */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-tabs {
+                gap: 8px;
+            }
+            
+            .nav-tab {
+                padding: 10px 16px;
+                font-size: 0.82rem;
+            }
+            
+            .nav-tab .tab-icon {
+                display: none;
+            }
+            
+            .flow-diagram {
+                flex-direction: column;
+            }
+            
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+            
+            .figure-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .teacher-tip {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .card {
+                padding: 22px;
+            }
+        }
+        
+        /* 다크모드 토글 (기본 다크) */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .theme-toggle:hover {
+            background: rgba(255,255,255,0.2);
+            transform: scale(1.1);
+        }
+        
+        /* SVG 도형 */
+        .diagram-svg {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()" title="테마 변경">🌙</button>
+    
+    <div class="container">
+        <header>
+            <div class="logo-icon">📚</div>
+            <h1>깊이 있는 학습</h1>
+            <p class="subtitle">2022 개정 교육과정의 핵심 학습 패러다임</p>
+            <span class="badge">🎓 교사·학생용 교육자료</span>
+        </header>
+        
+        <nav class="nav-tabs">
+            <div class="nav-tab active" data-tab="intro">
+                <span class="tab-icon">📖</span>개념 이해
+            </div>
+            <div class="nav-tab" data-tab="pillars">
+                <span class="tab-icon">🎯</span>3가지 핵심
+            </div>
+            <div class="nav-tab" data-tab="example">
+                <span class="tab-icon">✍️</span>적용 예시
+            </div>
+            <div class="nav-tab" data-tab="prompt">
+                <span class="tab-icon">🤖</span>AI 프롬프트
+            </div>
+            <div class="nav-tab" data-tab="quiz">
+                <span class="tab-icon">🧠</span>사고력 퀴즈
+            </div>
+            <div class="nav-tab" data-tab="reflection">
+                <span class="tab-icon">💭</span>성찰과 명언
+            </div>
+        </nav>
+        
+        <!-- 개념 이해 섹션 -->
+        <section id="intro" class="content-section active">
+            <div class="card">
+                <h2><span class="emoji">📖</span> 깊이 있는 학습이란?</h2>
+                
+                <div class="highlight-box">
+                    <p><strong>"학습의 맥락을 파악하여 적용해 보는 학습"</strong></p>
+                </div>
+                
+                <p>단순히 지식을 습득하는 것이 아니라, 그 지식을 실질적으로 이해하고 다양한 맥락에서 활용할 수 있는 능력을 기르는 것을 강조합니다. 이는 2022 개정 교육과정의 핵심 철학이기도 합니다.</p>
+                
+                <h3>🔑 핵심 키워드</h3>
+                <p>➜ <strong>메타인지</strong>와 <strong>인지 모니터링</strong>을 통해 학습 전략뿐 아니라 내용 이해의 정확성까지 점검하고 개선하는 <strong>성찰적 사고</strong>를 중심으로 합니다.</p>
+                
+                <div class="insight-box">
+                    <h4>💡 중요한 구분</h4>
+                    <p style="font-size: 1.05rem; margin-bottom: 12px;"><strong>깊이 있는 학습 ≠ 교과 내용 심화</strong></p>
+                    <p style="margin-top: 14px; margin-bottom: 8px;"><strong>예: 삼각함수 학습 시</strong></p>
+                    <ul>
+                        <li><strong>깊이 있는 학습:</strong> 정의, 성질, 법칙을 삶과 연계하여 이해하고, 왜 이것을 배우는지 성찰</li>
+                        <li><strong>단순 심화:</strong> 같은 내용의 반복 학습, 더 어려운 문제 풀이에만 집중</li>
+                    </ul>
+                </div>
+                
+                <div class="key-message">
+                    <h3>🌟 핵심 메시지</h3>
+                    <p>"배움의 양보다 배움의 깊이가 중요하다"</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 3가지 핵심 섹션 -->
+        <section id="pillars" class="content-section">
+            <div class="card">
+                <h2><span class="emoji">🎯</span> 깊이 있는 학습의 3가지 핵심 요소</h2>
+                <p>교육부(2021.11.24) 총론 주요사항(시안)에서 제시한 깊이 있는 학습의 핵심입니다.</p>
+                
+                <div class="three-pillars">
+                    <div class="pillar">
+                        <div class="pillar-icon">🌱</div>
+                        <h4>학생의 삶과 연계한 학습</h4>
+                        <p>배운 내용을 실제 생활 속 문제와 연결하여 의미 있는 학습 경험을 만듭니다. "이걸 왜 배우지?"라는 질문에 스스로 답할 수 있어야 합니다.</p>
+                    </div>
+                    
+                    <div class="pillar">
+                        <div class="pillar-icon">🔄</div>
+                        <h4>학습 과정에 대한 성찰</h4>
+                        <p>자신의 학습 방법과 이해도를 점검하고 개선하는 메타인지적 접근입니다. "내가 정말 이해한 건가?"를 끊임없이 자문합니다.</p>
+                    </div>
+                    
+                    <div class="pillar">
+                        <div class="pillar-icon">🔗</div>
+                        <h4>교과 간 연계와 통합</h4>
+                        <p>여러 교과의 지식을 융합하여 통합적 사고력을 기릅니다. 수학적 개념이 과학, 경제, 예술에서 어떻게 활용되는지 탐구합니다.</p>
+                    </div>
+                </div>
+                
+                <div class="teacher-tip">
+                    <div class="tip-icon">👨‍🏫</div>
+                    <div class="tip-content">
+                        <h4>교사 Tip</h4>
+                        <p>세 가지 요소 중 하나만 충족해도 '깊이 있는 학습'의 시작입니다. 모든 수업에서 세 가지를 동시에 다룰 필요는 없습니다. 학생들이 자연스럽게 연결고리를 찾도록 질문으로 유도하세요.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 실제 적용 예시 섹션 -->
+        <section id="example" class="content-section">
+            <div class="card">
+                <h2><span class="emoji">✍️</span> 세특 기록 실제 적용 예시</h2>
+                
+                <div class="flow-diagram">
+                    <div class="flow-item">🎯 탐구 주제 설정</div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">📊 데이터 활용</div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">📐 수학적 모델링</div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">🔍 분석 및 적용</div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">⭐ 역량 강조</div>
+                </div>
+                
+                <div class="example-card">
+                    <h4>📝 AI 활용 프롬프트 예시</h4>
+                    <div class="prompt-box">
+나는 일반고 1학년에 재학 중인데 지금 함수 단원을 배웠어. 함수의 개념과 상수함수, 항등함수, 일대일함수, 일대일대응, 합성함수 등을 배웠는데 이를 바탕으로 2022 개정 교육과정에서 강조하는 '깊이 있는 학습(▲ 학생의 삶과 연계한 학습 ▲ 학습 과정에 대한 성찰 ▲ 교과 간 연계와 통합, *교육부(2021.11.24): 총론 주요사항(시안))'을 해보고 싶어.
+
+사다리타기 게임, 암호/복호, 이중 환전 등과 같이 나의 삶과 연계한 학습 예시 정도로.... 도와줘!
+                    </div>
+                    
+                    <div class="setech-example">
+                        <span class="setech-label">📋 공통수학2 세특 예시</span>
+                        <p><strong>(수업장면)</strong> 함수 단원 학습 후 'AI 활용 깊이 있는 학습 활동'에서 생활 속 함수라는 탐구 주제를 스스로 설정함.</p>
+                        <p style="margin-top: 14px;"><strong>(학생활동)</strong> 싱가포르와 인도의 환율 데이터를 수집하여 직접 환전과 이중 환전을 합성함수로 모델링하고, 그 결과를 비용 측면에서 비교·분석함.</p>
+                        <p style="margin-top: 14px;"><strong>(교사의 평가)</strong> 이를 통해 경제적 판단 과정을 수학적 논리로 체계적으로 제시하며, 함수 개념을 실제 생활 문제 해결에 적용하는 탐구 역량을 보여줌.</p>
+                    </div>
+                </div>
+                
+                <div class="insight-box">
+                    <h4>💡 세특 작성 시 주의점</h4>
+                    <ul>
+                        <li><strong>수업장면:</strong> 어떤 상황에서 학생이 탐구를 시작했는지</li>
+                        <li><strong>학생활동:</strong> 구체적으로 무엇을 어떻게 했는지 (데이터, 방법, 도구)</li>
+                        <li><strong>교사의 평가:</strong> 이 활동이 보여주는 학생의 역량과 성장</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 프롬프트 가이드 섹션 -->
+        <section id="prompt" class="content-section">
+            <div class="card">
+                <h2><span class="emoji">🤖</span> 일반고 전용 AI 프롬프트 가이드</h2>
+                <p>깊이 있는 학습을 위해 AI를 효과적으로 활용하는 방법입니다. 아래 프롬프트를 복사하여 ChatGPT, Claude 등에 활용해 보세요.</p>
+                
+                <div class="prompt-guide-card">
+                    <div class="prompt-header">
+                        <span class="prompt-badge">🎓 기본 프롬프트</span>
+                        <button class="copy-btn" onclick="copyPrompt('prompt1', this)">
+                            <span class="copy-icon">📋</span> 복사하기
+                        </button>
+                    </div>
+                    <div class="prompt-content" id="prompt1">나는 일반고 [학년]학년에 재학 중인데 지금 [과목명]의 [단원명]을 배웠어.
+[배운 내용을 간단히 나열]을 배웠는데 이를 바탕으로 2022 개정 교육과정에서 강조하는 '깊이 있는 학습'을 해보고 싶어.
+
+깊이 있는 학습의 3요소:
+▲ 학생의 삶과 연계한 학습
+▲ 학습 과정에 대한 성찰
+▲ 교과 간 연계와 통합
+*출처: 교육부(2021.11.24): 총론 주요사항(시안)
+
+나의 삶과 연계한 구체적인 학습 예시를 제안해줘!</div>
+                </div>
+                
+                <div class="prompt-guide-card">
+                    <div class="prompt-header">
+                        <span class="prompt-badge">📊 데이터 활용 프롬프트</span>
+                        <button class="copy-btn" onclick="copyPrompt('prompt2', this)">
+                            <span class="copy-icon">📋</span> 복사하기
+                        </button>
+                    </div>
+                    <div class="prompt-content" id="prompt2">[위 프롬프트에 이어서]
+
+이 탐구에서 활용할 수 있는 실제 데이터 출처와 수집 방법을 알려줘.
+그리고 이 데이터를 [수학적 개념/과학적 원리]으로 분석하는 방법도 설명해줘.
+
+최종적으로 이 탐구를 세특에 기록한다면 어떤 역량을 강조할 수 있을지도 알려줘.</div>
+                </div>
+                
+                <div class="prompt-guide-card">
+                    <div class="prompt-header">
+                        <span class="prompt-badge">🔗 교과 연계 프롬프트</span>
+                        <button class="copy-btn" onclick="copyPrompt('prompt3', this)">
+                            <span class="copy-icon">📋</span> 복사하기
+                        </button>
+                    </div>
+                    <div class="prompt-content" id="prompt3">[현재 배우고 있는 단원]과 연계할 수 있는 다른 교과의 내용을 찾아줘.
+
+예를 들어:
+- 수학 ↔ 과학 연계
+- 사회 ↔ 국어 연계
+- 기술·가정 ↔ 정보 연계
+
+구체적인 탐구 주제와 함께 어떻게 융합할 수 있는지 설명해줘.</div>
+                </div>
+                
+                <div class="teacher-tip">
+                    <div class="tip-icon">💡</div>
+                    <div class="tip-content">
+                        <h4>활용 Tip</h4>
+                        <p>AI의 답변을 그대로 사용하지 말고, 자신만의 관점과 경험을 더해 재해석하세요. 진정한 깊이 있는 학습은 AI가 아닌 여러분의 <strong>성찰</strong>에서 시작됩니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 사고력 퀴즈 섹션 -->
+        <section id="quiz" class="content-section">
+            <div class="card">
+                <h2><span class="emoji">🧠</span> 깊이 있는 사고력 퀴즈</h2>
+                <p>이 퀴즈는 단순 계산이 아닌 <strong>맥락 파악</strong>과 <strong>성찰적 사고</strong>를 요구합니다.</p>
+                
+                <div class="quiz-container">
+                    <!-- Step 1: 문제 제시 -->
+                    <div id="quiz-step-1" class="quiz-step">
+                        <h3>📝 Step 1: 문제를 읽어보세요</h3>
+                        
+                        <div class="quiz-question">
+                            <p><strong>문제:</strong> 아래 두 도형의 넓이의 합을 구하세요.</p>
+                        </div>
+                        
+                        <div class="figure-container">
+                            <div class="figure-box">
+                                <svg width="120" height="120" viewBox="0 0 120 120" class="diagram-svg">
+                                    <rect x="10" y="10" width="100" height="100" fill="none" stroke="#667eea" stroke-width="3"/>
+                                    <text x="60" y="65" text-anchor="middle" fill="#667eea" font-size="20" font-weight="bold">4cm</text>
+                                    <text x="60" y="125" text-anchor="middle" fill="#a0aec0" font-size="12">정사각형</text>
+                                </svg>
+                                <p>한 변 = 4cm</p>
+                            </div>
+                            
+                            <div class="figure-box">
+                                <svg width="150" height="120" viewBox="0 0 150 120" class="diagram-svg">
+                                    <polygon points="75,10 140,100 10,100" fill="none" stroke="#10b981" stroke-width="3"/>
+                                    <text x="75" y="70" text-anchor="middle" fill="#10b981" font-size="16" font-weight="bold">밑변 8cm</text>
+                                    <text x="75" y="90" text-anchor="middle" fill="#10b981" font-size="16" font-weight="bold">높이 4cm</text>
+                                    <text x="75" y="115" text-anchor="middle" fill="#a0aec0" font-size="12">삼각형</text>
+                                </svg>
+                                <p>밑변 = 8cm, 높이 = 4cm</p>
+                            </div>
+                        </div>
+                        
+                        <div style="text-align: center; margin-top: 25px;">
+                            <button class="btn" onclick="showStep2()">정답 확인하기 →</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2: 일반적인 풀이 -->
+                    <div id="quiz-step-2" class="quiz-step hidden">
+                        <h3>🤔 Step 2: 많은 사람들의 계산</h3>
+                        
+                        <div class="calculation-box">
+                            <div class="calculation-row">
+                                <div class="calc-item">
+                                    <span class="calc-label">정사각형 넓이:</span>
+                                    <span class="calc-value">4 × 4 = 16 cm²</span>
+                                </div>
+                            </div>
+                            <div class="calculation-row">
+                                <div class="calc-item">
+                                    <span class="calc-label">삼각형 넓이:</span>
+                                    <span class="calc-value">8 × 4 ÷ 2 = 16 cm²</span>
+                                </div>
+                            </div>
+                            <div class="calculation-row">
+                                <div class="calc-item">
+                                    <span class="calc-label">합계:</span>
+                                    <span class="calc-value">16 + 16 = 32 cm²</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="warning-box">
+                            <h4>정답: 32 cm² <span class="question-mark">?</span></h4>
+                            <p>이것이 정답일까요?</p>
+                        </div>
+                        
+                        <div class="progress-indicator">
+                            <div class="progress-dot completed"></div>
+                            <div class="progress-dot active"></div>
+                            <div class="progress-dot"></div>
+                        </div>
+                        
+                        <div style="text-align: center; margin-top: 25px;">
+                            <button class="btn secondary" onclick="showStep1()">← 문제 다시 보기</button>
+                            <button class="btn" onclick="showStep3()">진짜 정답 확인 →</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3: 진짜 정답 -->
+                    <div id="quiz-step-3" class="quiz-step hidden">
+                        <h3>✨ Step 3: 깊이 있는 사고의 결과</h3>
+                        
+                        <div class="success-box">
+                            <h4>🎯 진짜 정답: 알 수 없다!</h4>
+                            <p>문제를 다시 읽어보세요. <strong>"두 도형의 넓이의 합"</strong>을 구하라고 했지만, 두 도형이 같은 단위(cm²)를 사용한다는 보장이 없습니다.</p>
+                            <p style="margin-top: 12px;">정사각형의 4cm와 삼각형의 8cm, 4cm가 <strong>같은 척도</strong>인지 확인하지 않았다면, 이 둘을 더하는 것은 수학적으로 의미가 없습니다.</p>
+                        </div>
+                        
+                        <div class="insight-box" style="margin-top: 25px;">
+                            <h4>📚 깊이 있는 학습과의 연결</h4>
+                            <p>이 퀴즈는 "깊이 있는 학습"의 핵심을 보여줍니다:</p>
+                            <ul>
+                                <li><strong>맥락 파악:</strong> 문제가 정확히 무엇을 묻고 있는지 이해하기</li>
+                                <li><strong>성찰적 사고:</strong> 습관적 반응을 멈추고 다시 생각하기</li>
+                                <li><strong>메타인지:</strong> "내가 정말 문제를 제대로 읽었는가?" 점검하기</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="progress-indicator">
+                            <div class="progress-dot completed"></div>
+                            <div class="progress-dot completed"></div>
+                            <div class="progress-dot active"></div>
+                        </div>
+                        
+                        <div style="text-align: center; margin-top: 25px;">
+                            <button class="btn secondary" onclick="resetQuiz()">🔄 처음부터 다시 해보기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 성찰과 명언 섹션 -->
+        <section id="reflection" class="content-section">
+            <div class="card">
+                <h2><span class="emoji">💭</span> 성찰과 가치</h2>
+                
+                <div class="quote-card">
+                    <blockquote>
+                        "우리가 삶에서 무언가를 단계적으로 성취하려면, 첫 시작이 가능하고, 한 단계에서 그 다음 단계로 넘어갈 수 있어야 전체를 이룰 수 있다!"
+                    </blockquote>
+                    <p class="author">- 교과 역량 중 가치·태도</p>
+                </div>
+                
+                <h3>📐 수학 용어로 만든 명언</h3>
+                
+                <div class="quote-card" style="background: linear-gradient(135deg, rgba(59,130,246,0.1) 0%, rgba(147,51,234,0.1) 100%); border-color: #3b82f6;">
+                    <blockquote>
+                        "혼자선 숫자지만, 함께하면 세상을 움직이는 연산이 된다. 우리는 모두 하나의 행렬이다."
+                    </blockquote>
+                    <p class="author" style="color: #3b82f6;">- 행렬 (Matrix)</p>
+                </div>
+                
+                <div class="quote-card" style="background: linear-gradient(135deg, rgba(16,185,129,0.1) 0%, rgba(6,182,212,0.1) 100%); border-color: #10b981;">
+                    <blockquote>
+                        "모든 문제에는 해가 존재한다. 다만, 그 해를 찾는 방정식을 아직 발견하지 못했을 뿐."
+                    </blockquote>
+                    <p class="author" style="color: #10b981;">- 방정식 (Equation)</p>
+                </div>
+                
+                <div class="highlight-box" style="margin-top: 30px;">
+                    <p><strong>🌟 깊이 있는 학습을 위한 핵심 질문</strong></p>
+                    <ul style="margin-top: 14px; margin-left: 20px; color: #e2e8f0;">
+                        <li style="margin-bottom: 10px;">이 개념이 내 삶에서 어떻게 적용될 수 있을까?</li>
+                        <li style="margin-bottom: 10px;">내가 정말 이해한 것인가, 아니면 암기한 것인가?</li>
+                        <li style="margin-bottom: 10px;">다른 과목의 내용과 어떻게 연결될 수 있을까?</li>
+                        <li>내가 모르는 것이 무엇인지 알고 있는가?</li>
+                    </ul>
+                </div>
+                
+                <div class="key-message" style="margin-top: 35px;">
+                    <h3>🎓 오늘의 성찰</h3>
+                    <p>"공부를 잘하는 것보다 공부를 제대로 하는 것이 더 중요하다"</p>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <p><strong>2022 개정 교육과정 기반 · 깊이 있는 학습 교육 자료</strong></p>
+            <p style="margin-top: 10px;">참고: 서울대학교 권오현 (2023) - 깊이 있는 학습을 위한 교육과정 설계</p>
+            <p style="margin-top: 10px; color: #94a3b8;">© 진로교사용 교육자료 | 오프라인 사용 가능</p>
+        </footer>
+    </div>
+    
+    <script>
+        // 탭 네비게이션
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+                
+                tab.classList.add('active');
+                const targetId = tab.getAttribute('data-tab');
+                document.getElementById(targetId).classList.add('active');
+                
+                // 스크롤 맨 위로
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+        
+        // 퀴즈 단계 전환
+        function showStep1() {
+            document.getElementById('quiz-step-1').classList.remove('hidden');
+            document.getElementById('quiz-step-2').classList.add('hidden');
+            document.getElementById('quiz-step-3').classList.add('hidden');
+        }
+        
+        function showStep2() {
+            document.getElementById('quiz-step-1').classList.add('hidden');
+            document.getElementById('quiz-step-2').classList.remove('hidden');
+            document.getElementById('quiz-step-3').classList.add('hidden');
+        }
+        
+        function showStep3() {
+            document.getElementById('quiz-step-1').classList.add('hidden');
+            document.getElementById('quiz-step-2').classList.add('hidden');
+            document.getElementById('quiz-step-3').classList.remove('hidden');
+        }
+        
+        function resetQuiz() {
+            showStep1();
+        }
+        
+        // 프롬프트 복사 기능
+        function copyPrompt(promptId, btn) {
+            const promptText = document.getElementById(promptId).innerText;
+            navigator.clipboard.writeText(promptText).then(() => {
+                btn.classList.add('copied');
+                btn.innerHTML = '<span class="copy-icon">✅</span> 복사 완료!';
+                
+                setTimeout(() => {
+                    btn.classList.remove('copied');
+                    btn.innerHTML = '<span class="copy-icon">📋</span> 복사하기';
+                }, 2500);
+            }).catch(err => {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = promptText;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                btn.classList.add('copied');
+                btn.innerHTML = '<span class="copy-icon">✅</span> 복사 완료!';
+                
+                setTimeout(() => {
+                    btn.classList.remove('copied');
+                    btn.innerHTML = '<span class="copy-icon">📋</span> 복사하기';
+                }, 2500);
+            });
+        }
+        
+        // 테마 토글 (현재는 다크 모드 고정)
+        function toggleTheme() {
+            const btn = document.querySelector('.theme-toggle');
+            btn.innerHTML = btn.innerHTML === '🌙' ? '☀️' : '🌙';
+            // 실제 테마 변경 기능은 추후 확장 가능
+            alert('현재 다크 모드로 최적화되어 있습니다. 🌙');
+        }
+        
+        // 키보드 네비게이션
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') {
+                const activeTab = document.querySelector('.nav-tab.active');
+                const nextTab = activeTab.nextElementSibling;
+                if (nextTab && nextTab.classList.contains('nav-tab')) {
+                    nextTab.click();
+                }
+            } else if (e.key === 'ArrowLeft') {
+                const activeTab = document.querySelector('.nav-tab.active');
+                const prevTab = activeTab.previousElementSibling;
+                if (prevTab && prevTab.classList.contains('nav-tab')) {
+                    prevTab.click();
+                }
+            }
+        });
+        
+        // 페이지 로드 시 애니메이션
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
